@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CH2 Home · Plataforma</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #0d1b2e;
+  --navy-mid: #152338;
+  --navy-light: #1e3050;
+  --gold: #c4964a;
+  --gold-light: #d4aa6a;
+  --cream: #f0e8d8;
+  --teal: #2ab5a0;
+  --teal-dark: #1d8a78;
+  --white: #ffffff;
+  --gray: #8a9ab0;
+  --gray-light: #c8d4e0;
+  --danger: #e05050;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* telas */
+.screen { display: none; min-height: 100vh; }
+.screen.active { display: flex; flex-direction: column; }
+
+/* HOME */
+#home {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px;
+  background: var(--navy);
+}
+
+.home-card {
+  background: var(--navy-mid);
+  border-radius: 16px;
+  padding: 30px;
+  margin: 10px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.home-card:hover {
+  transform: translateY(-4px);
+  border: 1px solid var(--gold);
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+/* restante simplificado pra garantir funcionamento */
+</style>
+</head>
+
+<body>
+
+<div id="home" class="screen active">
+  <div>
+    <h1>CH2 Home</h1>
+
+    <div class="home-card" onclick="showScreen('quote')">
+      Solicitar orçamento
+    </div>
+
+    <div class="home-card" onclick="showScreen('login')">
+      Área restrita
+    </div>
+  </div>
+</div>
+
+<div id="login" class="screen">
+  <div style="padding:40px">
+    <h2>Login</h2>
+    <input type="password" id="pw" placeholder="Senha">
+    <br><br>
+    <button class="btn btn-primary" onclick="login()">Entrar</button>
+    <br><br>
+    <button onclick="showScreen('home')">Voltar</button>
+  </div>
+</div>
+
+<div id="quote" class="screen">
+  <div style="padding:40px">
+    <h2>Orçamento</h2>
+    <input placeholder="Nome"><br><br>
+    <input placeholder="Telefone"><br><br>
+    <textarea placeholder="Descrição"></textarea><br><br>
+    <button class="btn btn-primary">Enviar</button>
+    <br><br>
+    <button onclick="showScreen('home')">Voltar</button>
+  </div>
+</div>
+
+<script>
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function login(){
+  const pw = document.getElementById('pw').value;
+  if(pw === '123'){
+    alert('Login ok');
+  } else {
+    alert('Senha errada');
+  }
+}
+</script>
+
+</body>
+</html>
