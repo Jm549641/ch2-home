@@ -1,0 +1,3210 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CH2 Home · Plataforma</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+--navy: #0d1b2e;
+--navy-mid: #152338;
+--navy-light: #1e3050;
+--gold: #c4964a;
+--gold-light: #d4aa6a;
+--cream: #f0e8d8;
+--teal: #2ab5a0;
+--teal-dark: #1d8a78;
+--white: #ffffff;
+--gray: #8a9ab0;
+--gray-light: #c8d4e0;
+--danger: #e05050;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+background: #0d1b2e !important;
+background-color: #0d1b2e !important;
+color: #ffffff !important;
+-webkit-text-size-adjust: 100%;
+}
+
+html, body {
+font-family: ‘Jost’, sans-serif;
+background: #0d1b2e !important;
+background-color: #0d1b2e !important;
+color: #ffffff !important;
+min-height: 100vh !important;
+overflow-x: hidden;
+-webkit-font-smoothing: antialiased;
+}
+
+/* Force all text to be white by default */
+body * {
+color: inherit;
+}
+
+/* Override any platform link styles */
+a { color: inherit; text-decoration: none; }
+
+input, select, textarea, button {
+font-family: ‘Jost’, sans-serif;
+-webkit-appearance: none;
+appearance: none;
+}
+
+select {
+background-image: url(“data:image/svg+xml,%3Csvg xmlns=‘http://www.w3.org/2000/svg’ width=‘12’ height=‘8’ viewBox=‘0 0 12 8’%3E%3Cpath fill=’%238a9ab0’ d=‘M1 1l5 5 5-5’/%3E%3C/svg%3E”);
+background-repeat: no-repeat;
+background-position: right 12px center;
+padding-right: 36px !important;
+}
+
+/* ====== SCREENS ====== */
+.screen { display: none; min-height: 100vh; }
+.screen.active { display: flex; flex-direction: column; }
+
+/* ====== HOME SCREEN ====== */
+#home {
+background: radial-gradient(ellipse at 20% 50%, rgba(196,150,74,0.08) 0%, transparent 60%),
+radial-gradient(ellipse at 80% 20%, rgba(42,181,160,0.05) 0%, transparent 50%),
+var(–navy);
+align-items: center;
+justify-content: center;
+padding: 40px 20px;
+position: relative;
+overflow: hidden;
+}
+
+#home::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0; right: 0; bottom: 0;
+background: url(“data:image/svg+xml,%3Csvg width=‘60’ height=‘60’ viewBox=‘0 0 60 60’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cg fill=‘none’ fill-rule=‘evenodd’%3E%3Cg fill=’%23c4964a’ fill-opacity=‘0.03’%3E%3Cpath d=‘M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z’/%3E%3C/g%3E%3C/g%3E%3C/svg%3E”);
+opacity: 0.5;
+}
+
+.home-content {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 60px;
+max-width: 900px;
+width: 100%;
+position: relative;
+z-index: 1;
+}
+
+.logo-area {
+text-align: center;
+animation: fadeUp 0.8s ease both;
+}
+
+.logo-svg {
+width: 160px;
+margin-bottom: 8px;
+}
+
+.logo-tagline {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 15px;
+font-style: italic;
+color: var(–gray);
+letter-spacing: 0.05em;
+margin-top: 8px;
+}
+
+.home-cards {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 20px;
+width: 100%;
+animation: fadeUp 0.8s ease 0.2s both;
+}
+
+.home-card {
+background: linear-gradient(135deg, var(–navy-mid), var(–navy-light));
+border: 1px solid rgba(196,150,74,0.2);
+border-radius: 16px;
+padding: 36px 32px;
+cursor: pointer;
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+}
+
+.home-card::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 2px;
+background: linear-gradient(90deg, transparent, var(–gold), transparent);
+opacity: 0;
+transition: opacity 0.3s;
+}
+
+.home-card:hover {
+border-color: rgba(196,150,74,0.5);
+transform: translateY(-4px);
+box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.home-card:hover::before { opacity: 1; }
+
+.card-icon {
+width: 52px; height: 52px;
+border-radius: 12px;
+display: flex; align-items: center; justify-content: center;
+font-size: 24px;
+margin-bottom: 20px;
+}
+
+.card-icon.gold { background: rgba(196,150,74,0.15); }
+.card-icon.teal { background: rgba(42,181,160,0.15); }
+.card-icon.navy { background: rgba(255,255,255,0.08); }
+
+.home-card h3 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 22px;
+font-weight: 600;
+color: var(–cream);
+margin-bottom: 8px;
+}
+
+.home-card p {
+font-size: 13px;
+color: var(–gray);
+line-height: 1.6;
+}
+
+.card-arrow {
+position: absolute;
+bottom: 20px; right: 24px;
+color: var(–gold);
+font-size: 18px;
+opacity: 0;
+transform: translateX(-8px);
+transition: all 0.3s;
+}
+
+.home-card:hover .card-arrow { opacity: 1; transform: translateX(0); }
+
+.admin-link {
+display: flex;
+align-items: center;
+gap: 8px;
+font-size: 12px;
+color: var(–gray);
+cursor: pointer;
+padding: 10px 20px;
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 50px;
+transition: all 0.3s;
+animation: fadeUp 0.8s ease 0.4s both;
+}
+
+.admin-link:hover { border-color: rgba(255,255,255,0.2); color: var(–white); }
+
+/* ====== NAVIGATION ====== */
+.nav {
+background: rgba(13,27,46,0.95);
+backdrop-filter: blur(20px);
+border-bottom: 1px solid rgba(196,150,74,0.15);
+padding: 0 32px;
+height: 64px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+position: sticky; top: 0; z-index: 100;
+flex-shrink: 0;
+}
+
+.nav-logo { display: flex; align-items: center; gap: 14px; cursor: pointer; }
+.nav-logo-img { width: 36px; }
+.nav-logo-text { font-family: ‘Cormorant Garamond’, serif; font-size: 18px; color: var(–cream); letter-spacing: 0.08em; }
+
+.nav-back {
+display: flex; align-items: center; gap: 8px;
+font-size: 13px; color: var(–gray);
+cursor: pointer; transition: color 0.2s;
+}
+.nav-back:hover { color: var(–gold); }
+
+.nav-badge {
+background: rgba(196,150,74,0.15);
+border: 1px solid rgba(196,150,74,0.3);
+color: var(–gold);
+font-size: 11px;
+font-weight: 500;
+padding: 4px 12px;
+border-radius: 50px;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+}
+
+/* ====== PAGE CONTENT ====== */
+.page-content {
+flex: 1;
+padding: 48px 40px;
+max-width: 800px;
+width: 100%;
+margin: 0 auto;
+}
+
+#quote {
+background: #f5f0e8;
+}
+
+#quote .page-header h1 {
+color: #2a3a52;
+}
+
+#quote .page-header p {
+color: #4a5e78;
+}
+
+#quote .page-header .eyebrow {
+color: var(–teal);
+}
+
+#inspection {
+background: var(–navy);
+}
+
+.page-header { margin-bottom: 40px; }
+.page-header .eyebrow {
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–teal);
+margin-bottom: 12px;
+}
+
+.page-header h1 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 40px;
+font-weight: 600;
+color: #2a3a52;
+line-height: 1.1;
+margin-bottom: 12px;
+}
+
+.page-header p {
+font-size: 15px;
+color: var(–gray);
+line-height: 1.7;
+}
+
+/* ====== FORM STYLES ====== */
+.form-section {
+background: linear-gradient(135deg, var(–navy-mid), var(–navy-light));
+border: 1px solid rgba(196,150,74,0.15);
+border-radius: 16px;
+padding: 32px;
+margin-bottom: 20px;
+}
+
+.form-section-title {
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 24px;
+padding-bottom: 12px;
+border-bottom: 1px solid rgba(196,150,74,0.15);
+}
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-grid .full { grid-column: 1 / -1; }
+
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+
+label {
+font-size: 12px;
+font-weight: 500;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+color: var(–gray-light);
+}
+
+input, select, textarea {
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.1);
+border-radius: 10px;
+padding: 13px 16px;
+color: var(–white);
+font-family: ‘Jost’, sans-serif;
+font-size: 14px;
+transition: all 0.2s;
+width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+outline: none;
+border-color: var(–gold);
+background: rgba(196,150,74,0.05);
+box-shadow: 0 0 0 3px rgba(196,150,74,0.1);
+}
+
+select option { background: var(–navy-mid); }
+
+textarea { resize: vertical; min-height: 100px; }
+
+/* SERVICE SELECTOR */
+.service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.service-option {
+background: rgba(255,255,255,0.03);
+border: 1.5px solid rgba(255,255,255,0.08);
+border-radius: 12px;
+padding: 16px;
+cursor: pointer;
+transition: all 0.2s;
+}
+
+.service-option:hover { border-color: rgba(196,150,74,0.3); background: rgba(196,150,74,0.04); }
+
+.service-option.selected {
+border-color: var(–gold);
+background: rgba(196,150,74,0.08);
+}
+
+.service-option .service-icon { font-size: 20px; margin-bottom: 8px; }
+.service-option .service-name {
+font-size: 13px;
+font-weight: 500;
+color: var(–cream);
+line-height: 1.3;
+}
+
+.service-option input[type=“checkbox”] { display: none; }
+
+/* BUTTONS */
+.btn {
+display: inline-flex; align-items: center; justify-content: center;
+gap: 8px;
+padding: 14px 32px;
+border-radius: 10px;
+font-family: ‘Jost’, sans-serif;
+font-size: 14px;
+font-weight: 500;
+cursor: pointer;
+transition: all 0.2s;
+border: none;
+letter-spacing: 0.03em;
+}
+
+.btn-primary {
+background: linear-gradient(135deg, var(–gold), var(–gold-light));
+color: var(–navy);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196,150,74,0.3); }
+
+.btn-teal {
+background: linear-gradient(135deg, var(–teal-dark), var(–teal));
+color: var(–white);
+}
+.btn-teal:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(42,181,160,0.3); }
+
+.btn-ghost {
+background: transparent;
+border: 1px solid rgba(255,255,255,0.15);
+color: var(–gray-light);
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.3); color: var(–white); }
+
+.btn-full { width: 100%; }
+
+.btn-danger {
+background: rgba(224,80,80,0.15);
+border: 1px solid rgba(224,80,80,0.3);
+color: var(–danger);
+}
+
+/* ====== INSPECTION FORM ====== */
+.inspection-type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+
+.inspection-type-card {
+background: rgba(255,255,255,0.03);
+border: 1.5px solid rgba(255,255,255,0.08);
+border-radius: 14px;
+padding: 24px;
+cursor: pointer;
+transition: all 0.25s;
+text-align: center;
+}
+
+.inspection-type-card:hover { border-color: rgba(196,150,74,0.4); }
+.inspection-type-card.selected { border-color: var(–gold); background: rgba(196,150,74,0.06); }
+
+.inspection-type-card .type-icon { font-size: 32px; margin-bottom: 12px; }
+.inspection-type-card h4 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 18px;
+color: var(–cream);
+margin-bottom: 6px;
+}
+.inspection-type-card p { font-size: 12px; color: var(–gray); line-height: 1.5; }
+
+/* CHECKLIST */
+.checklist-group { margin-bottom: 24px; }
+.checklist-group-title {
+font-size: 12px; font-weight: 600;
+letter-spacing: 0.12em; text-transform: uppercase;
+color: var(–teal);
+margin-bottom: 12px;
+padding-bottom: 8px;
+border-bottom: 1px solid rgba(42,181,160,0.2);
+}
+
+.check-item {
+display: flex; align-items: flex-start; gap: 14px;
+padding: 12px 0;
+border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.check-item:last-child { border-bottom: none; }
+
+.check-item .item-label {
+flex: 1;
+font-size: 13px;
+color: var(–gray-light);
+padding-top: 2px;
+}
+
+.check-status {
+display: flex; gap: 6px;
+}
+
+.status-btn {
+width: 32px; height: 28px;
+border-radius: 6px;
+border: 1px solid rgba(255,255,255,0.1);
+background: transparent;
+cursor: pointer;
+font-size: 12px;
+transition: all 0.15s;
+color: var(–gray);
+}
+
+.status-btn:hover { border-color: rgba(255,255,255,0.3); }
+.status-btn.ok.active { background: rgba(42,181,160,0.2); border-color: var(–teal); color: var(–teal); }
+.status-btn.attention.active { background: rgba(196,150,74,0.2); border-color: var(–gold); color: var(–gold); }
+.status-btn.critical.active { background: rgba(224,80,80,0.2); border-color: var(–danger); color: var(–danger); }
+
+.item-note {
+width: 100%;
+margin-top: 8px;
+display: none;
+}
+.item-note.visible { display: block; }
+.item-note input {
+font-size: 12px;
+padding: 8px 12px;
+background: rgba(255,255,255,0.03);
+border-color: rgba(255,255,255,0.06);
+}
+
+/* PHOTO UPLOAD */
+.photo-upload {
+border: 2px dashed rgba(196,150,74,0.25);
+border-radius: 12px;
+padding: 32px;
+text-align: center;
+cursor: pointer;
+transition: all 0.2s;
+position: relative;
+}
+.photo-upload:hover { border-color: rgba(196,150,74,0.5); background: rgba(196,150,74,0.03); }
+.photo-upload input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.photo-upload .upload-icon { font-size: 32px; margin-bottom: 10px; }
+.photo-upload p { font-size: 13px; color: var(–gray); }
+.photo-upload strong { color: var(–gold); }
+
+.photo-previews { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.photo-thumb {
+width: 70px; height: 70px;
+border-radius: 8px;
+object-fit: cover;
+border: 1px solid rgba(196,150,74,0.3);
+}
+
+/* RATING */
+.star-rating { display: flex; gap: 6px; }
+.star { font-size: 22px; cursor: pointer; opacity: 0.3; transition: opacity 0.15s; }
+.star.active { opacity: 1; }
+
+/* ====== ADMIN / LOGIN ====== */
+.login-screen {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+background: radial-gradient(ellipse at center, rgba(42,181,160,0.06) 0%, transparent 60%), var(–navy);
+padding: 20px;
+}
+
+.login-box {
+background: linear-gradient(135deg, var(–navy-mid), var(–navy-light));
+border: 1px solid rgba(196,150,74,0.2);
+border-radius: 20px;
+padding: 48px 40px;
+width: 100%;
+max-width: 400px;
+text-align: center;
+}
+
+.login-box .logo-svg { width: 100px; margin-bottom: 24px; }
+.login-box h2 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 28px;
+color: var(–cream);
+margin-bottom: 6px;
+}
+.login-box .subtitle { font-size: 13px; color: var(–gray); margin-bottom: 32px; }
+
+.login-tabs { display: flex; gap: 8px; margin-bottom: 28px; }
+.login-tab {
+flex: 1; padding: 10px;
+border: 1px solid rgba(255,255,255,0.1);
+border-radius: 8px;
+background: transparent;
+color: var(–gray);
+cursor: pointer;
+font-family: ‘Jost’, sans-serif;
+font-size: 13px;
+transition: all 0.2s;
+}
+.login-tab.active {
+background: rgba(196,150,74,0.1);
+border-color: var(–gold);
+color: var(–gold);
+}
+
+.login-error {
+background: rgba(224,80,80,0.1);
+border: 1px solid rgba(224,80,80,0.3);
+color: #ff9090;
+font-size: 13px;
+padding: 10px 14px;
+border-radius: 8px;
+margin-bottom: 16px;
+display: none;
+}
+
+/* ====== ADMIN PANEL ====== */
+#admin {
+background: radial-gradient(ellipse at top right, rgba(42,181,160,0.04), transparent 50%), var(–navy);
+}
+
+.admin-tabs {
+display: flex; gap: 4px;
+padding: 0 32px;
+background: rgba(0,0,0,0.2);
+border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.admin-tab {
+padding: 16px 20px;
+font-size: 13px;
+color: var(–gray);
+cursor: pointer;
+border-bottom: 2px solid transparent;
+transition: all 0.2s;
+}
+
+.admin-tab.active { color: var(–gold); border-bottom-color: var(–gold); }
+.admin-tab:hover { color: var(–cream); }
+
+.admin-content { flex: 1; padding: 40px 40px; max-width: 1100px; width: 100%; margin: 0 auto; }
+
+/* TABLE */
+.table-wrapper { overflow-x: auto; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08); }
+
+table { width: 100%; border-collapse: collapse; }
+
+th {
+background: rgba(255,255,255,0.04);
+padding: 12px 16px;
+text-align: left;
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(–gray);
+white-space: nowrap;
+}
+
+td {
+padding: 14px 16px;
+border-top: 1px solid rgba(255,255,255,0.05);
+font-size: 13px;
+color: var(–gray-light);
+}
+
+tr:hover td { background: rgba(255,255,255,0.02); }
+
+.badge {
+display: inline-flex; align-items: center;
+padding: 3px 10px;
+border-radius: 50px;
+font-size: 11px;
+font-weight: 500;
+}
+
+.badge-gold { background: rgba(196,150,74,0.15); color: var(–gold); }
+.badge-teal { background: rgba(42,181,160,0.15); color: var(–teal); }
+.badge-gray { background: rgba(255,255,255,0.08); color: var(–gray-light); }
+.badge-green { background: rgba(80,200,120,0.15); color: #60d888; }
+
+/* STATS */
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+
+.stat-card {
+background: linear-gradient(135deg, var(–navy-mid), var(–navy-light));
+border: 1px solid rgba(255,255,255,0.06);
+border-radius: 14px;
+padding: 20px 24px;
+}
+
+.stat-label { font-size: 11px; color: var(–gray); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+.stat-value { font-family: ‘Cormorant Garamond’, serif; font-size: 36px; color: var(–cream); line-height: 1; }
+.stat-sub { font-size: 11px; color: var(–teal); margin-top: 4px; }
+
+/* MODAL */
+.modal-overlay {
+position: fixed; inset: 0;
+background: rgba(0,0,0,0.7);
+backdrop-filter: blur(4px);
+z-index: 1000;
+display: flex; align-items: center; justify-content: center;
+padding: 20px;
+display: none;
+}
+.modal-overlay.open { display: flex; }
+
+.modal {
+background: var(–navy-mid);
+border: 1px solid rgba(196,150,74,0.25);
+border-radius: 20px;
+padding: 36px;
+max-width: 580px;
+width: 100%;
+max-height: 80vh;
+overflow-y: auto;
+animation: scaleIn 0.25s ease;
+}
+
+.modal-header {
+display: flex; justify-content: space-between; align-items: flex-start;
+margin-bottom: 24px;
+}
+
+.modal-title { font-family: ‘Cormorant Garamond’, serif; font-size: 24px; color: var(–cream); }
+.modal-close {
+width: 32px; height: 32px;
+background: rgba(255,255,255,0.06);
+border: none; border-radius: 8px;
+color: var(–gray); cursor: pointer;
+font-size: 18px; transition: all 0.2s;
+}
+.modal-close:hover { background: rgba(255,255,255,0.12); color: var(–white); }
+
+.detail-row { display: flex; margin-bottom: 14px; gap: 12px; }
+.detail-key { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(–gray); min-width: 120px; padding-top: 2px; }
+.detail-val { font-size: 14px; color: var(–cream); flex: 1; line-height: 1.5; }
+
+/* SUCCESS STATE */
+.success-screen {
+display: none;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+text-align: center;
+padding: 40px 20px;
+background: var(–navy);
+gap: 20px;
+}
+
+.success-screen.show { display: flex; }
+.success-icon { font-size: 64px; }
+.success-screen h2 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 36px;
+color: var(–cream);
+}
+.success-screen p { font-size: 15px; color: var(–gray); max-width: 400px; line-height: 1.7; }
+
+/* DIVIDER */
+.divider {
+height: 1px;
+background: rgba(255,255,255,0.07);
+margin: 28px 0;
+}
+
+/* FORM ACTIONS */
+.form-actions {
+display: flex; gap: 12px; justify-content: flex-end;
+padding-top: 8px;
+}
+
+/* SEARCH BAR */
+.search-bar {
+position: relative; margin-bottom: 20px;
+}
+.search-bar input {
+padding-left: 40px;
+background: rgba(255,255,255,0.04);
+border-color: rgba(255,255,255,0.08);
+}
+.search-bar::before {
+content: ‘🔍’;
+position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+font-size: 14px; pointer-events: none;
+z-index: 1;
+}
+
+/* SECTION TITLE */
+.section-title {
+display: flex; justify-content: space-between; align-items: center;
+margin-bottom: 20px;
+}
+.section-title h3 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 24px;
+color: var(–cream);
+}
+
+/* INSPECTION CARD (admin list) */
+.inspection-card {
+background: linear-gradient(135deg, var(–navy-mid), var(–navy-light));
+border: 1px solid rgba(255,255,255,0.07);
+border-radius: 14px;
+padding: 20px 24px;
+margin-bottom: 12px;
+cursor: pointer;
+transition: all 0.2s;
+display: flex; align-items: center; gap: 20px;
+}
+.inspection-card:hover { border-color: rgba(196,150,74,0.3); transform: translateX(4px); }
+.inspection-card .card-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 28px; color: var(–gold); opacity: 0.4;
+min-width: 44px;
+}
+.inspection-card .card-info { flex: 1; }
+.inspection-card .card-name { font-size: 15px; color: var(–cream); font-weight: 500; margin-bottom: 4px; }
+.inspection-card .card-meta { font-size: 12px; color: var(–gray); }
+.inspection-card .card-type-badge { flex-shrink: 0; }
+
+/* EMPTY STATE */
+.empty-state {
+text-align: center;
+padding: 60px 20px;
+color: var(–gray);
+}
+.empty-state .empty-icon { font-size: 40px; margin-bottom: 16px; opacity: 0.4; }
+.empty-state p { font-size: 14px; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(24px); }
+to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+from { opacity: 0; transform: scale(0.94); }
+to { opacity: 1; transform: scale(1); }
+}
+
+/* LOGO SVG EMBEDDED */
+.logo-inline { display: inline-block; }
+
+/* OS TYPE BUTTONS */
+.os-type-btn {
+padding: 9px 18px;
+border-radius: 50px;
+border: 1.5px solid rgba(255,255,255,0.1);
+background: transparent;
+color: var(–gray-light);
+cursor: pointer;
+font-family: ‘Jost’, sans-serif;
+font-size: 13px;
+transition: all 0.2s;
+}
+.os-type-btn:hover { border-color: rgba(196,150,74,0.4); color: var(–gold); }
+.os-type-btn.active { background: rgba(196,150,74,0.12); border-color: var(–gold); color: var(–gold); }
+
+/* OS LINE */
+.os-line {
+background: rgba(255,255,255,0.03);
+border: 1px solid rgba(255,255,255,0.07);
+border-radius: 12px;
+padding: 16px;
+margin-bottom: 10px;
+display: grid;
+grid-template-columns: 2fr 1fr 1fr 1fr 36px;
+gap: 10px;
+align-items: end;
+}
+.os-line input, .os-line select {
+font-size: 13px;
+padding: 10px 12px;
+}
+.os-line-remove {
+width: 36px; height: 38px;
+background: rgba(224,80,80,0.1);
+border: 1px solid rgba(224,80,80,0.2);
+border-radius: 8px;
+color: var(–danger);
+cursor: pointer;
+font-size: 14px;
+display: flex; align-items: center; justify-content: center;
+transition: all 0.15s;
+}
+.os-line-remove:hover { background: rgba(224,80,80,0.2); }
+
+@media (max-width: 640px) {
+.os-line { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+.home-cards { grid-template-columns: 1fr; }
+.form-grid { grid-template-columns: 1fr; }
+.service-grid { grid-template-columns: 1fr; }
+.stats-grid { grid-template-columns: 1fr 1fr; }
+.inspection-type-grid { grid-template-columns: 1fr; }
+.page-content { padding: 32px 20px; }
+.admin-content { padding: 24px 20px; }
+.nav { padding: 0 20px; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- ======= SCREEN: HOME ======= -->
+
+<div id="home" class="screen active">
+<div class="home-content">
+<div class="logo-area">
+<svg class="logo-svg" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(30, 8)">
+<polyline points="70,10 140,58 130,58" fill="none" stroke="#c4964a" stroke-width="2.5" stroke-linecap="round"/>
+<polyline points="70,10 0,58 10,58" fill="none" stroke="#c4964a" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="95" y="22" width="14" height="22" fill="none" stroke="#c4964a" stroke-width="2"/>
+</g>
+<text x="100" y="100" font-family="Cormorant Garamond, serif" font-size="44" font-weight="300" fill="#f0e8d8" text-anchor="middle" letter-spacing="3">CH₂</text>
+<text x="100" y="122" font-family="Jost, sans-serif" font-size="12" font-weight="300" fill="#f0e8d8" text-anchor="middle" letter-spacing="12">HOME</text>
+<line x1="84" y1="128" x2="116" y2="128" stroke="#c4964a" stroke-width="1.5"/>
+</svg>
+<p class="logo-tagline">A CH2 cuida da sua casa · Para você cuidar da sua vida</p>
+</div>
+
+```
+<div class="home-cards">
+<div class="home-card" onclick="showScreen('quote')">
+<div class="card-icon gold">🏠</div>
+<h3>Solicitar Orçamento</h3>
+<p>Preencha o formulário e nossa equipe entrará em contato para apresentar a melhor solução para o seu imóvel.</p>
+<span class="card-arrow">→</span>
+</div>
+
+<div class="home-card" onclick="showLoginFor('inspector')">
+<div class="card-icon teal">🔐</div>
+<h3>Área Restrita</h3>
+<p>Área exclusiva para arquitetos e engenheiros da CH2. Acesso restrito com credenciais.</p>
+<span class="card-arrow">→</span>
+</div>
+</div>
+
+<div class="admin-link" onclick="showLoginFor('admin')">
+<span>🔐</span>
+<span>Área Administrativa · Acesso Restrito</span>
+</div>
+```
+
+</div>
+</div>
+
+<!-- ======= SCREEN: LOGIN ======= -->
+
+<div id="login" class="screen">
+<div class="login-screen" style="display:flex;">
+<div class="login-box">
+<svg class="logo-svg" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(30, 8)">
+<polyline points="70,10 140,58 130,58" fill="none" stroke="#c4964a" stroke-width="2.5" stroke-linecap="round"/>
+<polyline points="70,10 0,58 10,58" fill="none" stroke="#c4964a" stroke-width="2.5" stroke-linecap="round"/>
+<rect x="95" y="22" width="14" height="22" fill="none" stroke="#c4964a" stroke-width="2"/>
+</g>
+<text x="100" y="100" font-family="Cormorant Garamond, serif" font-size="44" font-weight="300" fill="#f0e8d8" text-anchor="middle" letter-spacing="3">CH₂</text>
+<text x="100" y="122" font-family="Jost, sans-serif" font-size="12" font-weight="300" fill="#f0e8d8" text-anchor="middle" letter-spacing="12">HOME</text>
+<line x1="84" y1="128" x2="116" y2="128" stroke="#c4964a" stroke-width="1.5"/>
+</svg>
+
+```
+<h2>Acesso Restrito</h2>
+<p class="subtitle" id="loginSubtitle">Insira suas credenciais para continuar</p>
+
+<div class="login-tabs">
+<button class="login-tab" id="tabAdmin" onclick="setLoginType('admin')">Administração</button>
+<button class="login-tab" id="tabInspector" onclick="setLoginType('inspector')">Vistoriador</button>
+</div>
+
+<div class="login-error" id="loginError">Senha incorreta. Tente novamente.</div>
+
+<div id="inspectorHint" style="display:none;background:rgba(42,181,160,0.07);border:1px solid rgba(42,181,160,0.2);border-radius:10px;padding:12px 14px;font-size:12px;color:var(--gray-light);margin-bottom:14px;text-align:left;line-height:1.6">
+Cada vistoriador tem sua própria senha.<br>Suas vistorias e rascunhos ficam separados por conta.
+</div>
+
+<div class="form-group" style="margin-bottom:14px;text-align:left">
+<label>Senha</label>
+<input type="password" id="loginPassword" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+</div>
+
+<button class="btn btn-primary btn-full" onclick="doLogin()">Entrar</button>
+<br>
+<button class="btn btn-ghost btn-full" style="margin-top:10px" onclick="showScreen('home')">← Voltar</button>
+
+<p style="font-size:11px;color:#4a6080;margin-top:20px">Uso exclusivo da equipe CH2 Home</p>
+</div>
+```
+
+</div>
+</div>
+
+<!-- ======= SCREEN: QUOTE FORM ======= -->
+
+<div id="quote" class="screen">
+<nav class="nav">
+<div class="nav-back" onclick="showScreen('home')">← Voltar</div>
+<div class="nav-logo">
+<svg class="nav-logo-img" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(30, 8)">
+<polyline points="70,10 140,58 130,58" fill="none" stroke="#c4964a" stroke-width="2" stroke-linecap="round"/>
+<polyline points="70,10 0,58 10,58" fill="none" stroke="#c4964a" stroke-width="2" stroke-linecap="round"/>
+</g>
+<text x="100" y="100" font-family="Cormorant Garamond, serif" font-size="44" font-weight="300" fill="#f0e8d8" text-anchor="middle" letter-spacing="3">CH₂</text>
+</svg>
+<span class="nav-logo-text">CH2 · Home</span>
+</div>
+<span class="nav-badge">Orçamento</span>
+</nav>
+
+<div id="quoteFormArea" style="flex:1;overflow-y:auto">
+<div class="page-content">
+<div class="page-header">
+<div class="eyebrow">Solicitação</div>
+<h1>Vamos cuidar do seu imóvel</h1>
+<p>Preencha o formulário abaixo e nossa equipe técnica entrará em contato em até 24 horas.</p>
+</div>
+
+```
+<!-- DADOS PESSOAIS -->
+<div class="form-section">
+<div class="form-section-title">Dados de Contato</div>
+<div class="form-grid">
+<div class="form-group">
+<label>Nome completo *</label>
+<input type="text" id="q_name" placeholder="Seu nome">
+</div>
+<div class="form-group">
+<label>Telefone / WhatsApp *</label>
+<input type="tel" id="q_phone" placeholder="(11) 99999-9999">
+</div>
+<div class="form-group">
+<label>E-mail</label>
+<input type="email" id="q_email" placeholder="seu@email.com">
+</div>
+<div class="form-group">
+<label>Bairro / Cidade</label>
+<input type="text" id="q_city" placeholder="São Paulo - SP">
+</div>
+</div>
+</div>
+
+<!-- SERVIÇO -->
+<div class="form-section">
+<div class="form-section-title">Qual serviço você precisa? *</div>
+<div class="service-grid">
+<label class="service-option" onclick="toggleService(this)">
+<div class="service-icon">📅</div>
+<div class="service-name">Plano de Assinatura<br><span style="color:var(--gray);font-size:11px">Cuidado contínuo mensal</span></div>
+</label>
+<label class="service-option" onclick="toggleService(this)">
+<div class="service-icon">🏡</div>
+<div class="service-name">Busca do Imóvel Ideal<br><span style="color:var(--gray);font-size:11px">Suporte técnico para mudança</span></div>
+</label>
+<label class="service-option" onclick="toggleService(this)">
+<div class="service-icon">📋</div>
+<div class="service-name">Vistoria Técnica com Laudo<br><span style="color:var(--gray);font-size:11px">+40 itens, 6 áreas técnicas</span></div>
+</label>
+<label class="service-option" onclick="toggleService(this)">
+<div class="service-icon">🔧</div>
+<div class="service-name">Serviços de Manutenção<br><span style="color:var(--gray);font-size:11px">Com supervisão profissional</span></div>
+</label>
+</div>
+</div>
+
+<!-- DETALHES -->
+<div class="form-section">
+<div class="form-section-title">Detalhes da Solicitação</div>
+<div class="form-grid">
+<div class="form-group">
+<label>Quando você precisa?</label>
+<select id="q_urgency">
+<option value="">Selecione...</option>
+<option>O mais rápido possível</option>
+<option>Dentro de 1 semana</option>
+<option>Dentro de 15 dias</option>
+<option>Dentro de 1 mês</option>
+<option>Sem urgência, quero me planejar</option>
+</select>
+</div>
+<div class="form-group">
+<label>Tipo de imóvel</label>
+<select id="q_proptype">
+<option value="">Selecione...</option>
+<option>Apartamento</option>
+<option>Casa</option>
+<option>Cobertura</option>
+<option>Comercial</option>
+<option>Outro</option>
+</select>
+</div>
+<div class="form-group full">
+<label>Conte mais sobre a sua situação *</label>
+<textarea id="q_comment" placeholder="Descreva o que está acontecendo no imóvel, o que você precisa, quais são suas dúvidas... Quanto mais detalhar, melhor poderemos te ajudar." rows="5"></textarea>
+</div>
+<div class="form-group full">
+<label>Como nos encontrou?</label>
+<select id="q_source">
+<option value="">Selecione...</option>
+<option>Instagram</option>
+<option>Indicação de amigo/familiar</option>
+<option>Google</option>
+<option>WhatsApp</option>
+<option>Outro</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="form-actions">
+<button class="btn btn-ghost" onclick="showScreen('home')">Cancelar</button>
+<button class="btn btn-primary" onclick="submitQuote()">Enviar Solicitação →</button>
+</div>
+</div>
+```
+
+</div>
+
+<!-- SUCCESS -->
+
+<div id="quoteSuccess" class="success-screen">
+<div class="success-icon">✅</div>
+<h2>Solicitação enviada!</h2>
+<p>Nossa equipe técnica entrará em contato em até 24 horas pelo número informado.</p>
+<p style="font-size:13px;color:#c4964a">CH2 Home · Sua casa em dia, todo mês.</p>
+<button class="btn btn-primary" onclick="showScreen('home')">← Voltar ao início</button>
+</div>
+</div>
+
+<!-- ======= SCREEN: INSPECTION FORM ======= -->
+
+<div id="inspection" class="screen">
+<nav class="nav">
+<div class="nav-back" id="inspNavBack" onclick="showInspectorHub()">← Voltar</div>
+<div class="nav-logo">
+<svg class="nav-logo-img" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(30, 8)">
+<polyline points="70,10 140,58 130,58" fill="none" stroke="#c4964a" stroke-width="2" stroke-linecap="round"/>
+<polyline points="70,10 0,58 10,58" fill="none" stroke="#c4964a" stroke-width="2" stroke-linecap="round"/>
+</g>
+<text x="100" y="100" font-family="Cormorant Garamond, serif" font-size="44" font-weight="300" fill="#f0e8d8" text-anchor="middle" letter-spacing="3">CH₂</text>
+</svg>
+<span class="nav-logo-text" id="inspectorName" style="color:var(--gold);font-size:14px">Vistoriador</span>
+</div>
+<span class="nav-badge" style="background:rgba(42,181,160,0.1);border-color:rgba(42,181,160,0.3);color:var(--teal)">Vistoria</span>
+</nav>
+
+<!-- INSPECTOR HUB -->
+
+<div id="inspectorHub" style="flex:1;overflow-y:auto">
+<div class="page-content">
+<div class="page-header">
+<div class="eyebrow">Área do Vistoriador</div>
+<h1 id="hubTitle">Minhas Vistorias</h1>
+</div>
+
+```
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px">
+<div class="home-card" onclick="startNewInspection()" style="padding:24px">
+<div class="card-icon teal" style="margin-bottom:12px">📋</div>
+<h3 style="font-size:18px">Nova Vistoria</h3>
+<p style="font-size:12px">Iniciar um novo formulário de vistoria ou laudo.</p>
+<span class="card-arrow">→</span>
+</div>
+<div class="home-card" onclick="showDraftsSection()" style="padding:24px;border-color:rgba(196,150,74,0.3)">
+<div class="card-icon gold" style="margin-bottom:12px">📝</div>
+<h3 style="font-size:18px">Rascunhos</h3>
+<p style="font-size:12px" id="draftsCount">Nenhum rascunho salvo.</p>
+<span class="card-arrow" style="color:var(--gold)">→</span>
+</div>
+</div>
+
+<!-- MY LAUDOS -->
+<div class="section-title"><h3>Minhas Vistorias Salvas</h3></div>
+<div id="myLaudosList"></div>
+<div class="empty-state" id="myLaudosEmpty" style="display:none">
+<div class="empty-icon">📋</div>
+<p>Você ainda não tem vistorias salvas.</p>
+</div>
+
+<!-- DRAFTS SECTION -->
+<div id="draftsSection" style="display:none;margin-top:32px">
+<div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
+<div style="flex:1;height:1px;background:rgba(196,150,74,0.2)"></div>
+<span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold)">📝 Rascunhos em Andamento</span>
+<div style="flex:1;height:1px;background:rgba(196,150,74,0.2)"></div>
+</div>
+<div id="draftsList"></div>
+<div class="empty-state" id="draftsEmpty" style="display:none">
+<div class="empty-icon">📝</div>
+<p>Nenhum rascunho salvo.</p>
+</div>
+</div>
+
+<div style="margin-top:32px">
+<button class="btn btn-ghost" onclick="logoutInspector()">Sair da conta →</button>
+</div>
+</div>
+```
+
+</div>
+
+<!-- INSPECTION FORM -->
+
+<div id="inspectionFormArea" style="flex:1;overflow-y:auto;display:none">
+<div class="page-content">
+<div class="page-header">
+<div class="eyebrow">Área do Vistoriador</div>
+<h1>Formulário de Vistoria</h1>
+<p>Preencha todos os campos. O laudo será salvo automaticamente no repositório.</p>
+</div>
+
+```
+<!-- TIPO DE VISTORIA -->
+<div class="form-section">
+<div class="form-section-title">Tipo de Vistoria</div>
+<div class="inspection-type-grid">
+<div class="inspection-type-card" onclick="selectInspectionType(this,'laudo')">
+<div class="type-icon">📄</div>
+<h4>Vistoria com Laudo</h4>
+<p>Diagnóstico completo com laudo técnico. Identificação de causas e recomendações.</p>
+</div>
+<div class="inspection-type-card" onclick="selectInspectionType(this,'plano')">
+<div class="type-icon">🔁</div>
+<h4>Visita Técnica de Plano</h4>
+<p>Visita preventiva mensal dos assinantes. 40+ itens em 6 áreas técnicas. 4h de duração.</p>
+</div>
+</div>
+</div>
+
+<!-- DADOS DO CLIENTE -->
+<div class="form-section">
+<div class="form-section-title">Dados do Cliente e Imóvel</div>
+<div class="form-grid">
+<div class="form-group">
+<label>Nome do Cliente *</label>
+<input type="text" id="i_client">
+</div>
+<div class="form-group">
+<label>Telefone</label>
+<input type="tel" id="i_phone">
+</div>
+<div class="form-group">
+<label>Endereço completo *</label>
+<input type="text" id="i_address" class="full">
+</div>
+<div class="form-group">
+<label>Data da Vistoria *</label>
+<input type="date" id="i_date">
+</div>
+<div class="form-group">
+<label>Vistoriador Responsável</label>
+<input type="text" id="i_inspector">
+</div>
+<div class="form-group">
+<label>Plano do Cliente</label>
+<select id="i_plan">
+<option value="">Selecione...</option>
+<option>Essencial</option>
+<option>Conforto</option>
+<option>Premium</option>
+<option>Avulso</option>
+</select>
+</div>
+</div>
+</div>
+
+<!-- CHECKLIST ESTRUTURA -->
+<div class="form-section">
+<div class="form-section-title">Checklist Técnico</div>
+
+<div class="checklist-group">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div class="checklist-group-title" style="margin-bottom:0">🏗️ Estrutura e Conservação Visual</div>
+<label style="cursor:pointer;font-size:11px;color:var(--teal);display:flex;align-items:center;gap:5px;border:1px solid rgba(42,181,160,0.3);padding:4px 10px;border-radius:20px;background:rgba(42,181,160,0.06)">
+📷 Fotos<input type="file" accept="image/*" multiple capture="environment" style="display:none" onchange="handleSectionPhoto(event,'estrutura')">
+</label>
+</div>
+<div class="photo-previews" id="photos_estrutura" style="margin:8px 0 4px"></div>
+<div id="checks-estrutura"></div>
+</div>
+<div class="checklist-group">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div class="checklist-group-title" style="margin-bottom:0">⚡ Elétrica e Tecnologia</div>
+<label style="cursor:pointer;font-size:11px;color:var(--teal);display:flex;align-items:center;gap:5px;border:1px solid rgba(42,181,160,0.3);padding:4px 10px;border-radius:20px;background:rgba(42,181,160,0.06)">
+📷 Fotos<input type="file" accept="image/*" multiple capture="environment" style="display:none" onchange="handleSectionPhoto(event,'eletrica')">
+</label>
+</div>
+<div class="photo-previews" id="photos_eletrica" style="margin:8px 0 4px"></div>
+<div id="checks-eletrica"></div>
+</div>
+<div class="checklist-group">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div class="checklist-group-title" style="margin-bottom:0">💧 Hidráulica e Sanitários</div>
+<label style="cursor:pointer;font-size:11px;color:var(--teal);display:flex;align-items:center;gap:5px;border:1px solid rgba(42,181,160,0.3);padding:4px 10px;border-radius:20px;background:rgba(42,181,160,0.06)">
+📷 Fotos<input type="file" accept="image/*" multiple capture="environment" style="display:none" onchange="handleSectionPhoto(event,'hidraulica')">
+</label>
+</div>
+<div class="photo-previews" id="photos_hidraulica" style="margin:8px 0 4px"></div>
+<div id="checks-hidraulica"></div>
+</div>
+<div class="checklist-group">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div class="checklist-group-title" style="margin-bottom:0">🚪 Portas, Marcenaria e Acabamentos</div>
+<label style="cursor:pointer;font-size:11px;color:var(--teal);display:flex;align-items:center;gap:5px;border:1px solid rgba(42,181,160,0.3);padding:4px 10px;border-radius:20px;background:rgba(42,181,160,0.06)">
+📷 Fotos<input type="file" accept="image/*" multiple capture="environment" style="display:none" onchange="handleSectionPhoto(event,'marcenaria')">
+</label>
+</div>
+<div class="photo-previews" id="photos_marcenaria" style="margin:8px 0 4px"></div>
+<div id="checks-marcenaria"></div>
+</div>
+<div class="checklist-group">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div class="checklist-group-title" style="margin-bottom:0">⚙️ Instalações e Funcionalidades</div>
+<label style="cursor:pointer;font-size:11px;color:var(--teal);display:flex;align-items:center;gap:5px;border:1px solid rgba(42,181,160,0.3);padding:4px 10px;border-radius:20px;background:rgba(42,181,160,0.06)">
+📷 Fotos<input type="file" accept="image/*" multiple capture="environment" style="display:none" onchange="handleSectionPhoto(event,'instalacoes')">
+</label>
+</div>
+<div class="photo-previews" id="photos_instalacoes" style="margin:8px 0 4px"></div>
+<div id="checks-instalacoes"></div>
+</div>
+<div class="checklist-group">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div class="checklist-group-title" style="margin-bottom:0">🌿 Sustentabilidade</div>
+<label style="cursor:pointer;font-size:11px;color:var(--teal);display:flex;align-items:center;gap:5px;border:1px solid rgba(42,181,160,0.3);padding:4px 10px;border-radius:20px;background:rgba(42,181,160,0.06)">
+📷 Fotos<input type="file" accept="image/*" multiple capture="environment" style="display:none" onchange="handleSectionPhoto(event,'sustentabilidade')">
+</label>
+</div>
+<div class="photo-previews" id="photos_sustentabilidade" style="margin:8px 0 4px"></div>
+<div id="checks-sustentabilidade"></div>
+</div>
+</div>
+
+<!-- FOTOS -->
+<div class="form-section">
+<div class="form-section-title">Registro Fotográfico</div>
+<div class="photo-upload" id="photoUpload">
+<input type="file" accept="image/*" multiple onchange="handlePhotos(event)">
+<div class="upload-icon">📷</div>
+<p><strong>Clique para adicionar fotos</strong></p>
+<p style="margin-top:4px">Adicione fotos de todos os pontos inspecionados</p>
+</div>
+<div class="photo-previews" id="photoPreviews"></div>
+</div>
+
+<!-- RELATÓRIO FINAL -->
+<div class="form-section">
+<div class="form-section-title">Relatório Final</div>
+<div class="form-grid">
+<div class="form-group full">
+<label>O que foi resolvido na visita</label>
+<textarea id="i_resolved" placeholder="Liste os itens corrigidos e pequenos reparos realizados..."></textarea>
+</div>
+<div class="form-group full">
+<label>O que exige especialista / próximos passos</label>
+<textarea id="i_specialist" placeholder="Problemas identificados que requerem serviços adicionais ou especialistas..."></textarea>
+</div>
+<div class="form-group full">
+<label>Sugestão de materiais / observações futuras</label>
+<textarea id="i_materials" placeholder="Materiais necessários, recomendações preventivas, data sugerida para próxima visita..."></textarea>
+</div>
+<div class="form-group">
+<label>Avaliação geral do imóvel</label>
+<div class="star-rating" id="starRating">
+<span class="star" onclick="setRating(1)">⭐</span>
+<span class="star" onclick="setRating(2)">⭐</span>
+<span class="star" onclick="setRating(3)">⭐</span>
+<span class="star" onclick="setRating(4)">⭐</span>
+<span class="star" onclick="setRating(5)">⭐</span>
+</div>
+</div>
+<div class="form-group">
+<label>Data recomendada para próxima visita</label>
+<input type="date" id="i_nextvisit">
+</div>
+</div>
+</div>
+
+<div class="form-actions">
+<button class="btn btn-ghost" onclick="showInspectorHub()">← Voltar</button>
+<button class="btn" style="background:rgba(196,150,74,0.12);border:1px solid rgba(196,150,74,0.4);color:var(--gold)" onclick="saveDraft()">💾 Salvar Rascunho</button>
+<button class="btn btn-teal" onclick="submitInspection()">Salvar Laudo ✓</button>
+</div>
+</div>
+```
+
+</div>
+
+<div id="inspectionSuccess" class="success-screen">
+<div class="success-icon">📋</div>
+<h2>Laudo salvo com sucesso!</h2>
+<p>O relatório foi adicionado ao repositório e está disponível para consulta pela equipe.</p>
+<button class="btn btn-teal" onclick="resetInspection()">Nova Vistoria</button>
+<button class="btn btn-ghost" onclick="showInspectorHub()">← Voltar à minha área</button>
+</div>
+</div>
+
+<!-- ======= SCREEN: ADMIN ======= -->
+
+<div id="admin" class="screen">
+<nav class="nav">
+<div class="nav-logo">
+<svg class="nav-logo-img" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(30, 8)">
+<polyline points="70,10 140,58 130,58" fill="none" stroke="#c4964a" stroke-width="2" stroke-linecap="round"/>
+<polyline points="70,10 0,58 10,58" fill="none" stroke="#c4964a" stroke-width="2" stroke-linecap="round"/>
+</g>
+<text x="100" y="100" font-family="Cormorant Garamond, serif" font-size="44" font-weight="300" fill="#f0e8d8" text-anchor="middle" letter-spacing="3">CH₂</text>
+</svg>
+<span class="nav-logo-text">Painel Administrativo</span>
+</div>
+<button class="btn btn-ghost" style="font-size:12px;padding:8px 16px" onclick="showScreen('home')">Sair →</button>
+<button class="btn" style="font-size:11px;padding:8px 14px;background:rgba(80,200,120,0.1);border:1px solid rgba(80,200,120,0.3);color:#60d888;margin-left:8px" onclick="exportToExcel()">⬇ Excel</button>
+</nav>
+
+<div class="admin-tabs">
+<div class="admin-tab active" onclick="switchAdminTab(this,'tabQuotes')">📥 Solicitações de Orçamento</div>
+<div class="admin-tab" onclick="switchAdminTab(this,'tabLaudos')">📋 Laudos & Vistorias</div>
+<div class="admin-tab" onclick="switchAdminTab(this,'tabClients')">👤 Clientes</div>
+<div class="admin-tab" onclick="switchAdminTab(this,'tabClientView')">🔍 Visão por Cliente</div>
+</div>
+
+<!-- TAB: QUOTES -->
+
+<div id="tabQuotes" class="admin-content">
+<div class="stats-grid" id="quoteStats"></div>
+<div class="section-title">
+<h3>Solicitações de Orçamento</h3>
+</div>
+<div class="search-bar">
+<input type="text" placeholder="Buscar por nome, serviço, cidade..." oninput="filterQuotes(this.value)">
+</div>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Nome</th>
+<th>Telefone</th>
+<th>Serviço</th>
+<th>Urgência</th>
+<th>Status</th>
+<th>Data</th>
+<th>Ação</th>
+</tr>
+</thead>
+<tbody id="quotesTableBody"></tbody>
+</table>
+</div>
+<div id="quotesEmpty" class="empty-state" style="display:none">
+<div class="empty-icon">📭</div>
+<p>Nenhuma solicitação encontrada</p>
+</div>
+</div>
+
+<!-- TAB: LAUDOS -->
+
+<div id="tabLaudos" class="admin-content" style="display:none">
+<div class="stats-grid" id="laudoStats"></div>
+<div class="section-title">
+<h3>Repositório de Laudos</h3>
+</div>
+<div class="search-bar">
+<input type="text" placeholder="Buscar por cliente, endereço, vistoriador..." oninput="filterLaudos(this.value)">
+</div>
+<div id="laudosList"></div>
+<div id="laudosEmpty" class="empty-state" style="display:none">
+<div class="empty-icon">📁</div>
+<p>Nenhum laudo encontrado</p>
+</div>
+</div>
+
+<!-- TAB: CLIENTS REGISTER -->
+
+<div id="tabClients" class="admin-content" style="display:none">
+<div class="stats-grid" id="clientStats"></div>
+
+```
+<!-- 1. CLIENT LIST -->
+<div class="section-title">
+<h3>Clientes Cadastrados</h3>
+<span id="clientCount" class="badge badge-gray"></span>
+</div>
+<div class="search-bar">
+<input type="text" placeholder="Buscar por nome, plano, cidade..." oninput="filterClients(this.value)">
+</div>
+<div id="clientsList" style="margin-bottom:48px"></div>
+<div id="clientsEmpty" class="empty-state" style="display:none;margin-bottom:48px">
+<div class="empty-icon">👥</div>
+<p>Nenhum cliente cadastrado ainda</p>
+</div>
+
+<!-- DIVIDER -->
+<div style="display:flex;align-items:center;gap:16px;margin-bottom:32px">
+<div style="flex:1;height:1px;background:rgba(196,150,74,0.2)"></div>
+<span style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold)">✦ Novo Cadastro</span>
+<div style="flex:1;height:1px;background:rgba(196,150,74,0.2)"></div>
+</div>
+
+<!-- 2. NEW CLIENT FORM -->
+<div class="section-title" style="margin-bottom:20px">
+<h3 id="clientFormTitle">Cadastrar Novo Cliente</h3>
+</div>
+<div class="form-section">
+<div class="form-section-title" id="clientFormMode">✦ Dados do Cliente</div>
+<div class="form-grid">
+<input type="hidden" id="c_editId">
+<div class="form-group">
+<label>Nome Completo *</label>
+<input type="text" id="c_name" placeholder="Nome do cliente">
+</div>
+<div class="form-group">
+<label>Telefone / WhatsApp *</label>
+<input type="tel" id="c_phone" placeholder="(11) 99999-9999">
+</div>
+<div class="form-group">
+<label>E-mail</label>
+<input type="email" id="c_email" placeholder="email@exemplo.com">
+</div>
+<div class="form-group">
+<label>Cidade / Bairro</label>
+<input type="text" id="c_city" placeholder="São Paulo - SP">
+</div>
+<div class="form-group">
+<label>Endereço do Imóvel</label>
+<input type="text" id="c_address" placeholder="Rua, número, complemento">
+</div>
+<div class="form-group">
+<label>Tipo de Imóvel</label>
+<select id="c_proptype">
+<option value="">Selecione...</option>
+<option>Apartamento</option>
+<option>Casa</option>
+<option>Cobertura</option>
+<option>Comercial</option>
+</select>
+</div>
+<div class="form-group">
+<label>Plano Contratado</label>
+<select id="c_plan">
+<option value="">Selecione...</option>
+<option>Essencial · R$ 200/mês</option>
+<option>Conforto · R$ 504/mês</option>
+<option>Premium · R$ 1008/mês</option>
+<option>Avulso / Sem plano</option>
+</select>
+</div>
+<div class="form-group">
+<label>Tipo de Serviço</label>
+<select id="c_service">
+<option value="">Selecione...</option>
+<option>Plano de Assinatura</option>
+<option>Vistoria com Laudo</option>
+<option>Busca do Imóvel</option>
+<option>Manutenção Pontual</option>
+<option>Múltiplos Serviços</option>
+</select>
+</div>
+<div class="form-group">
+<label>Recorrência</label>
+<select id="c_recurrence">
+<option value="">Selecione...</option>
+<option>Recorrente (assinatura)</option>
+<option>Pontual / Único</option>
+<option>Em avaliação</option>
+</select>
+</div>
+<div class="form-group">
+<label>Data de Início</label>
+<input type="date" id="c_startdate">
+</div>
+<div class="form-group">
+<label>Status do Cliente</label>
+<select id="c_status">
+<option>Ativo</option>
+<option>Em negociação</option>
+<option>Pausado</option>
+<option>Inativo</option>
+</select>
+</div>
+<div class="form-group">
+<label>Origem / Como nos encontrou</label>
+<select id="c_source">
+<option value="">Selecione...</option>
+<option>Instagram</option>
+<option>Indicação</option>
+<option>Google</option>
+<option>WhatsApp</option>
+<option>Solicitação no site</option>
+<option>Outro</option>
+</select>
+</div>
+<div class="form-group full">
+<label>Observações Estratégicas</label>
+<textarea id="c_notes" rows="3" placeholder="Perfil do cliente, histórico relevante, preferências, oportunidades de upsell..."></textarea>
+</div>
+</div>
+<div class="form-actions" style="margin-top:20px">
+<button class="btn btn-ghost" onclick="cancelClientEdit()">Limpar</button>
+<button class="btn btn-primary" onclick="saveClient()">Salvar Cliente →</button>
+</div>
+</div>
+```
+
+</div>
+
+<!-- ORDER OF SERVICE MODAL -->
+
+<div class="modal-overlay" id="osModal">
+<div class="modal" style="max-width:720px">
+<div class="modal-header">
+<div>
+<div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:6px">Ordem de Serviço</div>
+<h3 class="modal-title" id="osModalClientName">—</h3>
+</div>
+<button class="modal-close" onclick="closeOsModal()">✕</button>
+</div>
+
+```
+<!-- OS TYPE -->
+<div style="display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap">
+<button class="os-type-btn active" onclick="setOsType(this,'Recorrente')" data-type="Recorrente">🔁 Recorrente</button>
+<button class="os-type-btn" onclick="setOsType(this,'Única')" data-type="Única">⚡ Contratação Única</button>
+<button class="os-type-btn" onclick="setOsType(this,'Proposta')" data-type="Proposta">📄 Proposta de Manutenção</button>
+</div>
+
+<!-- OS META -->
+<div class="form-grid" style="margin-bottom:20px">
+<div class="form-group">
+<label>Data de envio da proposta</label>
+<input type="date" id="os_propdate">
+</div>
+<div class="form-group">
+<label>Status da Proposta</label>
+<select id="os_status">
+<option>Enviada · aguardando</option>
+<option>Aceita</option>
+<option>Recusada</option>
+<option>Em negociação</option>
+</select>
+</div>
+<div class="form-group">
+<label>Data de início do trabalho</label>
+<input type="date" id="os_startdate">
+</div>
+<div class="form-group">
+<label>Observações gerais</label>
+<input type="text" id="os_obs" placeholder="Detalhes adicionais...">
+</div>
+</div>
+
+<!-- SERVICES LINES -->
+<div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(196,150,74,0.15)">Serviços da Ordem</div>
+
+<div id="osLinesContainer"></div>
+
+<button onclick="addOsLine()" style="display:flex;align-items:center;gap:8px;background:rgba(42,181,160,0.08);border:1px dashed rgba(42,181,160,0.35);color:var(--teal);border-radius:10px;padding:10px 16px;cursor:pointer;font-family:'Jost',sans-serif;font-size:13px;width:100%;justify-content:center;margin-top:4px;transition:all 0.2s" onmouseover="this.style.background='rgba(42,181,160,0.14)'" onmouseout="this.style.background='rgba(42,181,160,0.08)'">
++ Adicionar linha de serviço
+</button>
+
+<div style="margin-top:28px;display:flex;justify-content:flex-end;gap:12px">
+<button class="btn btn-ghost" onclick="closeOsModal()">Cancelar</button>
+<button class="btn btn-teal" onclick="saveOs()">Salvar Ordem de Serviço ✓</button>
+</div>
+</div>
+```
+
+</div>
+
+<!-- TAB: CLIENT VIEW -->
+
+<div id="tabClientView" class="admin-content" style="display:none">
+<div class="section-title" style="margin-bottom:24px">
+<h3>Visão Completa por Cliente</h3>
+</div>
+
+```
+<!-- SEARCH -->
+<div style="max-width:500px;margin-bottom:32px">
+<label style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-light);display:block;margin-bottom:8px">Selecionar Cliente</label>
+<select id="clientViewSelect" onchange="loadClientView(this.value)" style="width:100%">
+<option value="">— Escolha um cliente —</option>
+</select>
+</div>
+
+<div id="clientViewArea" style="display:none">
+<!-- HEADER CARD -->
+<div style="background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));border:1px solid rgba(196,150,74,0.25);border-radius:16px;padding:28px 32px;margin-bottom:24px;display:flex;gap:28px;align-items:center;flex-wrap:wrap">
+<div style="width:60px;height:60px;border-radius:50%;background:rgba(196,150,74,0.15);border:2px solid rgba(196,150,74,0.4);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0" id="cv_avatar">👤</div>
+<div style="flex:1;min-width:200px">
+<div style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--cream)" id="cv_name">—</div>
+<div style="font-size:13px;color:var(--gray);margin-top:4px" id="cv_meta">—</div>
+</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap" id="cv_badges"></div>
+</div>
+
+<!-- INFO GRID -->
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px" id="cv_statcards"></div>
+
+<!-- TABS INSIDE CLIENT VIEW -->
+<div style="display:flex;gap:4px;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:24px" id="cv_innertabs">
+<div class="admin-tab active" style="font-size:12px;padding:12px 16px" onclick="switchCvTab(this,'cv_tab_overview')">📊 Resumo</div>
+<div class="admin-tab" style="font-size:12px;padding:12px 16px" onclick="switchCvTab(this,'cv_tab_laudos')">📋 Vistorias</div>
+<div class="admin-tab" style="font-size:12px;padding:12px 16px" onclick="switchCvTab(this,'cv_tab_quotes')">📥 Solicitações</div>
+<div class="admin-tab" style="font-size:12px;padding:12px 16px" onclick="switchCvTab(this,'cv_tab_actions')">✅ Ações Abertas</div>
+<div class="admin-tab" style="font-size:12px;padding:12px 16px" onclick="switchCvTab(this,'cv_tab_notes')">📝 Notas</div>
+</div>
+
+<!-- OVERVIEW -->
+<div id="cv_tab_overview">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+<div class="form-section">
+<div class="form-section-title">Dados do Contrato</div>
+<div id="cv_contract_info"></div>
+</div>
+<div class="form-section">
+<div class="form-section-title">Última Vistoria</div>
+<div id="cv_last_inspection"></div>
+</div>
+</div>
+<div class="form-section" style="margin-top:16px">
+<div class="form-section-title">Observações Estratégicas</div>
+<div id="cv_notes_display" style="font-size:14px;color:var(--gray-light);line-height:1.7"></div>
+</div>
+</div>
+
+<!-- LAUDOS TAB -->
+<div id="cv_tab_laudos" style="display:none">
+<div id="cv_laudos_list"></div>
+<div class="empty-state" id="cv_laudos_empty" style="display:none"><div class="empty-icon">📋</div><p>Nenhuma vistoria registrada para este cliente</p></div>
+</div>
+
+<!-- QUOTES TAB -->
+<div id="cv_tab_quotes" style="display:none">
+<div id="cv_quotes_list"></div>
+<div class="empty-state" id="cv_quotes_empty" style="display:none"><div class="empty-icon">📥</div><p>Nenhuma solicitação encontrada para este cliente</p></div>
+</div>
+
+<!-- ACTIONS TAB -->
+<div id="cv_tab_actions" style="display:none">
+<div class="form-section" style="margin-bottom:20px">
+<div class="form-section-title">Adicionar Ação / Pendência</div>
+<div class="form-grid">
+<div class="form-group">
+<label>Descrição da Ação *</label>
+<input type="text" id="action_desc" placeholder="Ex: Enviar proposta de plano Conforto">
+</div>
+<div class="form-group">
+<label>Prioridade</label>
+<select id="action_priority">
+<option>Alta</option>
+<option>Média</option>
+<option>Baixa</option>
+</select>
+</div>
+<div class="form-group">
+<label>Prazo</label>
+<input type="date" id="action_due">
+</div>
+<div class="form-group">
+<label>Responsável</label>
+<input type="text" id="action_owner" placeholder="Nome">
+</div>
+</div>
+<div class="form-actions" style="margin-top:12px">
+<button class="btn btn-primary" onclick="addClientAction()">+ Adicionar Ação</button>
+</div>
+</div>
+<div id="cv_actions_list"></div>
+<div class="empty-state" id="cv_actions_empty" style="display:none"><div class="empty-icon">✅</div><p>Nenhuma ação aberta</p></div>
+</div>
+
+<!-- NOTES TAB -->
+<div id="cv_tab_notes" style="display:none">
+<div class="form-section" style="margin-bottom:20px">
+<div class="form-section-title">Adicionar Nota</div>
+<div class="form-group" style="margin-bottom:12px">
+<textarea id="note_text" rows="3" placeholder="Registro de conversa, feedback, oportunidade identificada..."></textarea>
+</div>
+<div class="form-actions">
+<button class="btn btn-primary" onclick="addClientNote()">+ Salvar Nota</button>
+</div>
+</div>
+<div id="cv_notes_list"></div>
+<div class="empty-state" id="cv_notes_empty" style="display:none"><div class="empty-icon">📝</div><p>Nenhuma nota registrada</p></div>
+</div>
+
+</div>
+<div class="empty-state" id="clientViewEmpty">
+<div class="empty-icon">🔍</div>
+<p>Selecione um cliente para visualizar o histórico completo</p>
+</div>
+```
+
+</div>
+
+</div><!-- end #admin -->
+
+<!-- DETAIL MODAL -->
+
+<div class="modal-overlay" id="detailModal">
+<div class="modal">
+<div class="modal-header">
+<h3 class="modal-title" id="modalTitle">Detalhes</h3>
+<button class="modal-close" onclick="closeModal()">✕</button>
+</div>
+<div id="modalBody"></div>
+</div>
+</div>
+
+<script>
+// ===== DATA STORE =====
+let quotes = JSON.parse(localStorage.getItem('ch2_quotes') || '[]');
+let laudos = JSON.parse(localStorage.getItem('ch2_laudos') || '[]');
+let currentLoginType = 'admin';
+let inspectionRating = 0;
+let selectedServices = [];
+let selectedInspType = '';
+let checklistState = {};
+
+// PASSWORDS
+const PASSWORDS = { admin: 'ch2adminchris2027' };
+const INSPECTOR_ACCOUNTS = [
+{ id: 'insp1', name: 'Chris Arantes', password: 'ch2vis_arantes_2026' },
+{ id: 'insp2', name: 'Vistoriador 2', password: 'ch2vis_laudo_2026' },
+{ id: 'insp3', name: 'Vistoriador 3', password: 'ch2vis_plano_2026' },
+{ id: 'insp4', name: 'Vistoriador 4', password: 'ch2vis_imovel_2026' },
+{ id: 'insp5', name: 'Vistoriador 5', password: 'ch2vis_reforma_2026' },
+{ id: 'insp6', name: 'Vistoriador 6', password: 'ch2vis_manutencao_2026' },
+{ id: 'insp7', name: 'Vistoriador 7', password: 'ch2vis_vistoria_2026' },
+{ id: 'insp8', name: 'Vistoriador 8', password: 'ch2vis_gestao_2026' },
+];
+let currentInspector = null; // { id, name }
+
+// ===== CHECKLIST DATA =====
+const CHECKLIST = {
+estrutura: [
+'Trincas e fissuras nas paredes',
+'Infiltrações e umidade aparente',
+'Mofo e manchas por umidade',
+'Impermeabilização (paredes, piso)',
+'Telhado (revisão visual)',
+'Calhas (limpeza e estado)',
+'Vedação básica de janelas e portas',
+'Pintura descascando ou manchada',
+'Rachaduras no teto',
+],
+eletrica: [
+'Tomadas e interruptores (teste)',
+'Pontos sem energia identificados',
+'Disjuntores e aterramento',
+'Quadro elétrico (organização/risco)',
+'Troca de lâmpadas (até 5)',
+'Campainha / interfone',
+'Sensores de presença',
+'Roteador Wi-Fi (posição/reset)',
+'Acabamentos de tomada/interruptores (até 5)',
+],
+hidraulica: [
+'Vazamentos em torneiras e sifões',
+'Pressão d\'água (teste)',
+'Descargas (funcionamento)',
+'Ralos e lavatórios (desobstrução leve)',
+'Registros acessíveis',
+'Grelhas externas visíveis',
+'Teste de hidrômetro',
+'Aquecedor / boiler (visual)',
+'Tubulações aparentes (estado)',
+],
+marcenaria: [
+'Portas desalinhadas (ajuste)',
+'Dobradiças (lubrificação)',
+'Puxadores e fechaduras',
+'Trilhos e suportes (reaperto)',
+'Revestimentos e rejuntes (pontual)',
+'Armários embutidos (funcionamento)',
+'Guarda-roupas (ajuste)',
+'Rodapés e acabamentos gerais',
+],
+instalacoes: [
+'Itens simples (até 5): quadros, suportes, prateleiras',
+'Cortinas e persianas (ajuste simples)',
+'Ventilador de teto (limpeza leve)',
+'Fixações soltas em mobiliário',
+'Montagem de móveis simples',
+'Ajustes pós-reforma',
+],
+sustentabilidade: [
+'Lâmpadas LED (verificação)',
+'Eficiência energética geral',
+'Consumo de água (pontos de melhoria)',
+'Oportunidades de economia identificadas',
+]
+};
+
+// ===== INIT =====
+function init() {
+// Set today's date
+const today = new Date().toISOString().split('T')[0];
+const dateEl = document.getElementById('i_date');
+if (dateEl) dateEl.value = today;
+
+buildChecklist();
+}
+
+function buildChecklist() {
+Object.entries(CHECKLIST).forEach(([area, items]) => {
+const el = document.getElementById('checks-' + area);
+if (!el) return;
+el.innerHTML = items.map((item, idx) => `
+<div class="check-item">
+<div class="item-label">${item}</div>
+<div class="check-status">
+<button class="status-btn ok" title="OK" onclick="setCheckStatus('${area}_${idx}', 'ok', this)">✓</button>
+<button class="status-btn attention" title="Atenção" onclick="setCheckStatus('${area}_${idx}', 'attention', this)">!</button>
+<button class="status-btn critical" title="Crítico" onclick="setCheckStatus('${area}_${idx}', 'critical', this)">✗</button>
+</div>
+</div>
+<div class="item-note" id="note_${area}_${idx}">
+<input type="text" placeholder="Observação sobre este item..." id="noteinput_${area}_${idx}">
+</div>
+`).join('');
+});
+}
+
+function setCheckStatus(key, status, btn) {
+const parent = btn.closest('.check-item');
+parent.querySelectorAll('.status-btn').forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+checklistState[key] = status;
+
+// Show note field if attention or critical
+const noteEl = parent.nextElementSibling;
+if (noteEl && noteEl.classList.contains('item-note')) {
+noteEl.classList.toggle('visible', status !== 'ok');
+}
+}
+
+// ===== NAVIGATION =====
+function showScreen(id) {
+document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+window.scrollTo(0,0);
+}
+
+function showLoginFor(type) {
+currentLoginType = type;
+document.getElementById('tabAdmin').classList.toggle('active', type === 'admin');
+document.getElementById('tabInspector').classList.toggle('active', type === 'inspector');
+document.getElementById('loginPassword').value = '';
+document.getElementById('loginError').style.display = 'none';
+document.getElementById('inspectorHint').style.display = type === 'inspector' ? '' : 'none';
+showScreen('login');
+}
+
+function setLoginType(type) {
+currentLoginType = type;
+document.getElementById('tabAdmin').classList.toggle('active', type === 'admin');
+document.getElementById('tabInspector').classList.toggle('active', type === 'inspector');
+document.getElementById('inspectorHint').style.display = type === 'inspector' ? '' : 'none';
+}
+
+function doLogin() {
+const pw = document.getElementById('loginPassword').value;
+const err = document.getElementById('loginError');
+
+if (currentLoginType === 'admin') {
+if (pw === PASSWORDS.admin) {
+err.style.display = 'none';
+showScreen('admin');
+renderAdminQuotes();
+} else {
+err.style.display = 'block';
+document.getElementById('loginPassword').value = '';
+}
+return;
+}
+
+// Inspector: match against 8 accounts
+const acct = INSPECTOR_ACCOUNTS.find(a => a.password === pw);
+if (acct) {
+err.style.display = 'none';
+currentInspector = acct;
+// Pre-fill inspector name
+const inspEl = document.getElementById('i_inspector');
+if (inspEl) inspEl.value = acct.name;
+document.getElementById('inspectorName').textContent = acct.name;
+showScreen('inspection');
+showInspectorHub();
+} else {
+err.style.display = 'block';
+document.getElementById('loginPassword').value = '';
+}
+}
+
+// ===== SERVICE TOGGLE =====
+function toggleService(el) {
+el.classList.toggle('selected');
+}
+
+function getSelectedServices() {
+return Array.from(document.querySelectorAll('.service-option.selected'))
+.map(el => el.querySelector('.service-name').textContent.split('\n')[0].trim());
+}
+
+// ===== INSPECTION TYPE =====
+function selectInspectionType(el, type) {
+document.querySelectorAll('.inspection-type-card').forEach(c => c.classList.remove('selected'));
+el.classList.add('selected');
+selectedInspType = type;
+}
+
+// ===== RATING =====
+function setRating(val) {
+inspectionRating = val;
+document.querySelectorAll('.star').forEach((s, i) => s.classList.toggle('active', i < val));
+}
+
+// ===== PHOTOS =====
+function handlePhotos(e) {
+const previews = document.getElementById('photoPreviews');
+Array.from(e.target.files).forEach(file => {
+const reader = new FileReader();
+reader.onload = ev => {
+const img = document.createElement('img');
+img.src = ev.target.result;
+img.className = 'photo-thumb';
+previews.appendChild(img);
+};
+reader.readAsDataURL(file);
+});
+}
+
+// ===== SUBMIT QUOTE =====
+function submitQuote() {
+const name = document.getElementById('q_name').value.trim();
+const phone = document.getElementById('q_phone').value.trim();
+const comment = document.getElementById('q_comment').value.trim();
+const services = getSelectedServices();
+
+if (!name || !phone) { alert('Por favor, preencha nome e telefone.'); return; }
+if (services.length === 0) { alert('Selecione ao menos um serviço.'); return; }
+if (!comment) { alert('Por favor, descreva sua situação.'); return; }
+
+const entry = {
+id: Date.now(),
+name,
+phone,
+email: document.getElementById('q_email').value,
+city: document.getElementById('q_city').value,
+services,
+urgency: document.getElementById('q_urgency').value,
+proptype: document.getElementById('q_proptype').value,
+comment,
+source: document.getElementById('q_source').value,
+date: new Date().toLocaleDateString('pt-BR'),
+dateISO: new Date().toISOString(),
+status: 'Novo'
+};
+
+quotes.push(entry);
+localStorage.setItem('ch2_quotes', JSON.stringify(quotes));
+
+document.getElementById('quoteFormArea').style.display = 'none';
+document.getElementById('quoteSuccess').classList.add('show');
+}
+
+// ===== SUBMIT INSPECTION =====
+function submitInspection() {
+const client = document.getElementById('i_client').value.trim();
+const address = document.getElementById('i_address').value.trim();
+
+if (!client || !address) { alert('Preencha nome do cliente e endereço.'); return; }
+if (!selectedInspType) { alert('Selecione o tipo de vistoria.'); return; }
+
+// Collect checklist
+const items = {};
+let countOk = 0, countAttn = 0, countCrit = 0;
+Object.entries(checklistState).forEach(([key, val]) => {
+items[key] = val;
+if (val === 'ok') countOk++;
+else if (val === 'attention') countAttn++;
+else if (val === 'critical') countCrit++;
+});
+
+const laudo = {
+id: Date.now(),
+type: selectedInspType,
+client,
+phone: document.getElementById('i_phone').value,
+address,
+inspector: document.getElementById('i_inspector').value,
+plan: document.getElementById('i_plan').value,
+date: document.getElementById('i_date').value,
+checklist: items,
+summary: { ok: countOk, attention: countAttn, critical: countCrit },
+resolved: document.getElementById('i_resolved').value,
+specialist: document.getElementById('i_specialist').value,
+materials: document.getElementById('i_materials').value,
+rating: inspectionRating,
+nextvisit: document.getElementById('i_nextvisit').value,
+inspectorId: currentInspector?.id || '',
+dateISO: new Date().toISOString(),
+};
+
+laudos.push(laudo);
+localStorage.setItem('ch2_laudos', JSON.stringify(laudos));
+
+// Remove draft if existed
+if (currentDraftId) { deleteDraft(currentDraftId); currentDraftId = null; }
+
+document.getElementById('inspectionFormArea').style.display = 'none';
+document.getElementById('inspectionSuccess').classList.add('show');
+}
+
+// ===== INSPECTOR HUB =====
+let currentDraftId = null;
+let sectionPhotos = {}; // { area: [base64, ...] }
+
+function showInspectorHub() {
+document.getElementById('inspectorHub').style.display = '';
+document.getElementById('inspectionFormArea').style.display = 'none';
+document.getElementById('inspectionSuccess').classList.remove('show');
+document.getElementById('inspNavBack').style.display = 'none';
+// Reset drafts section to closed
+const ds = document.getElementById('draftsSection');
+if (ds) ds.style.display = 'none';
+renderMyLaudos();
+updateDraftsCount();
+window.scrollTo(0,0);
+}
+
+function startNewInspection() {
+currentDraftId = null;
+sectionPhotos = {};
+resetInspectionForm();
+document.getElementById('inspectorHub').style.display = 'none';
+document.getElementById('inspectionFormArea').style.display = '';
+document.getElementById('inspNavBack').style.display = '';
+init();
+window.scrollTo(0,0);
+}
+
+function renderMyLaudos() {
+if (!currentInspector) return;
+const myLaudos = laudos.filter(l => l.inspectorId === currentInspector.id);
+const el = document.getElementById('myLaudosList');
+const empty = document.getElementById('myLaudosEmpty');
+if (!myLaudos.length) { el.innerHTML = ''; empty.style.display = 'block'; return; }
+empty.style.display = 'none';
+el.innerHTML = myLaudos.slice().reverse().map((l, i) => `
+<div class="inspection-card" style="cursor:default;margin-bottom:10px">
+<div class="card-num">${String(i+1).padStart(2,'0')}</div>
+<div class="card-info">
+<div class="card-name">${l.client}</div>
+<div class="card-meta">${l.address} · ${l.date||'—'}</div>
+<div style="margin-top:5px">
+<span class="badge badge-green" style="margin-right:4px">✓${l.summary?.ok||0}</span>
+<span class="badge badge-gold" style="margin-right:4px">!${l.summary?.attention||0}</span>
+${(l.summary?.critical||0)>0?`<span class="badge" style="background:rgba(224,80,80,0.15);color:var(--danger)">✗${l.summary.critical}</span>`:''}
+</div>
+</div>
+<span class="badge ${l.type==='laudo'?'badge-gold':'badge-teal'}">${l.type==='laudo'?'📄 Laudo':'🔁 Plano'}</span>
+</div>
+`).join('');
+}
+
+function showDraftsSection() {
+const ds = document.getElementById('draftsSection');
+const draftsList = document.getElementById('draftsList');
+const draftsEmpty = document.getElementById('draftsEmpty');
+
+// Always open
+ds.style.display = 'block';
+
+const drafts = getDrafts();
+
+if (!drafts.length) {
+draftsList.innerHTML = '';
+draftsEmpty.style.display = 'block';
+return;
+}
+
+draftsEmpty.style.display = 'none';
+draftsList.innerHTML = drafts.map(d => `
+<div style="background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));border:1px solid rgba(196,150,74,0.25);border-radius:12px;padding:16px 20px;margin-bottom:10px;display:flex;align-items:center;gap:14px">
+<div style="flex:1">
+<div style="font-size:14px;color:var(--cream);font-weight:500">${d.client || '(sem nome)'}</div>
+<div style="font-size:11px;color:var(--gray);margin-top:4px">${d.address || '—'} · Salvo: ${d.savedAt ? new Date(d.savedAt).toLocaleDateString('pt-BR') : '—'}</div>
+${d.type ? `<span class="badge badge-gray" style="margin-top:6px;display:inline-block;font-size:10px">${d.type === 'laudo' ? '📄 Laudo' : '🔁 Plano'}</span>` : ''}
+</div>
+<button class="btn btn-teal" style="font-size:12px;padding:7px 14px;flex-shrink:0" onclick="loadDraft('${d.id}')">Continuar →</button>
+<button class="btn btn-danger" style="font-size:12px;padding:7px 12px;flex-shrink:0" onclick="deleteDraftAndRefresh('${d.id}')">✕</button>
+</div>
+`).join('');
+
+// Scroll to drafts section
+ds.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function deleteDraftAndRefresh(id) {
+deleteDraft(id);
+showDraftsSection();
+updateDraftsCount();
+}
+
+function updateDraftsCount() {
+const drafts = getDrafts();
+const el = document.getElementById('draftsCount');
+if (el) el.textContent = drafts.length > 0 ? `${drafts.length} rascunho(s) salvos. Clique para ver.` : 'Nenhum rascunho salvo.';
+}
+
+function getDrafts() {
+const all = JSON.parse(localStorage.getItem('ch2_drafts') || '[]');
+if (!currentInspector) return all; // fallback: show all if no inspector set
+return all.filter(d => d.inspectorId === currentInspector.id || !d.inspectorId);
+}
+
+function renderDraftsList() {
+const drafts = getDrafts();
+const el = document.getElementById('draftsList');
+const empty = document.getElementById('draftsEmpty');
+if (!el) return;
+if (!drafts.length) {
+el.innerHTML = '';
+if (empty) empty.style.display = 'block';
+return;
+}
+if (empty) empty.style.display = 'none';
+el.innerHTML = drafts.map(d => `
+<div style="background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));border:1px solid rgba(196,150,74,0.25);border-radius:12px;padding:16px 20px;margin-bottom:10px;display:flex;align-items:center;gap:14px">
+<div style="flex:1">
+<div style="font-size:14px;color:var(--cream)">${d.client || '(sem nome)'}</div>
+<div style="font-size:11px;color:var(--gray);margin-top:3px">${d.address || '—'} · Salvo em: ${d.savedAt ? new Date(d.savedAt).toLocaleDateString('pt-BR') : '—'}</div>
+${d.type ? `<span class="badge badge-gray" style="margin-top:6px;display:inline-block">${d.type === 'laudo' ? '📄 Laudo' : '🔁 Plano'}</span>` : ''}
+</div>
+<button class="btn btn-teal" style="font-size:12px;padding:7px 14px" onclick="loadDraft('${d.id}')">Continuar →</button>
+<button class="btn btn-danger" style="font-size:12px;padding:7px 12px" onclick="deleteDraft('${d.id}')">✕</button>
+</div>
+`).join('');
+}
+
+function saveDraft() {
+const draftId = currentDraftId || ('draft_' + Date.now());
+currentDraftId = draftId;
+const allDrafts = JSON.parse(localStorage.getItem('ch2_drafts') || '[]');
+const idx = allDrafts.findIndex(d => d.id === draftId);
+const data = collectFormData();
+data.id = draftId;
+data.inspectorId = currentInspector?.id;
+data.savedAt = new Date().toISOString();
+if (idx >= 0) allDrafts[idx] = data; else allDrafts.push(data);
+localStorage.setItem('ch2_drafts', JSON.stringify(allDrafts));
+// Toast
+showToast('💾 Rascunho salvo!');
+}
+
+function loadDraft(id) {
+const allDrafts = JSON.parse(localStorage.getItem('ch2_drafts') || '[]');
+const d = allDrafts.find(x => x.id === id);
+if (!d) return;
+currentDraftId = id;
+document.getElementById('inspectorHub').style.display = 'none';
+document.getElementById('inspectionFormArea').style.display = '';
+document.getElementById('inspNavBack').style.display = '';
+init();
+setTimeout(() => {
+// Select inspection type card
+if (d.type) {
+const cards = document.querySelectorAll('.inspection-type-card');
+cards.forEach(c => {
+if ((d.type === 'laudo' && c.querySelector('h4')?.textContent.includes('Laudo')) ||
+(d.type === 'plano' && c.querySelector('h4')?.textContent.includes('Plano'))) {
+selectInspectionType(c, d.type);
+}
+});
+}
+const setVal = (id, val) => { const el = document.getElementById(id); if (el && val) el.value = val; };
+setVal('i_client', d.client);
+setVal('i_phone', d.phone);
+setVal('i_address', d.address);
+setVal('i_date', d.date);
+setVal('i_inspector', d.inspector || currentInspector?.name);
+setVal('i_plan', d.plan);
+setVal('i_resolved', d.resolved);
+setVal('i_specialist', d.specialist);
+setVal('i_materials', d.materials);
+setVal('i_nextvisit', d.nextvisit);
+if (d.rating) setRating(d.rating);
+// Restore checklist states
+if (d.checklist) {
+checklistState = {...d.checklist};
+Object.entries(d.checklist).forEach(([key, val]) => {
+const parts = key.split('_');
+const idx2 = parts.pop();
+const area = parts.join('_');
+const items = document.querySelectorAll(`#checks-${area} .check-item`);
+const item = items[parseInt(idx2)];
+if (item) {
+const statusMap = { ok: 0, attention: 1, critical: 2 };
+const btns = item.querySelectorAll('.status-btn');
+btns.forEach(b => b.classList.remove('active'));
+if (btns[statusMap[val]]) btns[statusMap[val]].classList.add('active');
+// show note if attention/critical
+const noteEl = item.nextElementSibling;
+if (noteEl?.classList.contains('item-note') && val !== 'ok') noteEl.classList.add('visible');
+}
+});
+}
+showToast('📝 Rascunho carregado!');
+}, 300);
+window.scrollTo(0,0);
+}
+
+function deleteDraft(id) {
+let allDrafts = JSON.parse(localStorage.getItem('ch2_drafts') || '[]');
+allDrafts = allDrafts.filter(d => d.id !== id);
+localStorage.setItem('ch2_drafts', JSON.stringify(allDrafts));
+renderDraftsList();
+updateDraftsCount();
+}
+
+function collectFormData() {
+return {
+type: selectedInspType,
+client: document.getElementById('i_client')?.value || '',
+phone: document.getElementById('i_phone')?.value || '',
+address: document.getElementById('i_address')?.value || '',
+date: document.getElementById('i_date')?.value || '',
+inspector: document.getElementById('i_inspector')?.value || '',
+plan: document.getElementById('i_plan')?.value || '',
+checklist: {...checklistState},
+resolved: document.getElementById('i_resolved')?.value || '',
+specialist: document.getElementById('i_specialist')?.value || '',
+materials: document.getElementById('i_materials')?.value || '',
+rating: inspectionRating,
+nextvisit: document.getElementById('i_nextvisit')?.value || '',
+};
+}
+
+function handleSectionPhoto(e, area) {
+if (!sectionPhotos[area]) sectionPhotos[area] = [];
+const previews = document.getElementById('photos_' + area);
+Array.from(e.target.files).forEach(file => {
+const reader = new FileReader();
+reader.onload = ev => {
+sectionPhotos[area].push(ev.target.result);
+const img = document.createElement('img');
+img.src = ev.target.result;
+img.className = 'photo-thumb';
+previews.appendChild(img);
+};
+reader.readAsDataURL(file);
+});
+}
+
+function logoutInspector() {
+currentInspector = null;
+showScreen('home');
+}
+
+function showToast(msg) {
+let t = document.getElementById('toastMsg');
+if (!t) {
+t = document.createElement('div');
+t.id = 'toastMsg';
+t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:rgba(42,181,160,0.9);color:white;padding:12px 24px;border-radius:50px;font-size:13px;font-family:Jost,sans-serif;z-index:9999;transition:opacity 0.4s';
+document.body.appendChild(t);
+}
+t.textContent = msg;
+t.style.opacity = '1';
+setTimeout(() => t.style.opacity = '0', 2500);
+}
+
+// ===== EXCEL EXPORT =====
+function exportToExcel() {
+// Build CSV content for 3 sheets as separate downloads
+exportCSV(buildQuotesCSV(), 'CH2_Solicitacoes.csv');
+setTimeout(() => exportCSV(buildLaudosCSV(), 'CH2_Laudos.csv'), 400);
+setTimeout(() => exportCSV(buildClientsCSV(), 'CH2_Clientes.csv'), 800);
+}
+
+function exportCSV(content, filename) {
+const blob = new Blob(['\uFEFF' + content], {type: 'text/csv;charset=utf-8;'});
+const a = document.createElement('a');
+a.href = URL.createObjectURL(blob);
+a.download = filename;
+a.click();
+}
+
+function buildQuotesCSV() {
+const rows = [['#','Nome','Telefone','Email','Cidade','Serviços','Urgência','Imóvel','Mensagem','Origem','Data']];
+quotes.forEach((q,i) => rows.push([i+1, q.name, q.phone, q.email||'', q.city||'', (q.services||[]).join('; '), q.urgency||'', q.proptype||'', (q.comment||'').replace(/"/g,"'"), q.source||'', q.date]));
+return rows.map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+}
+
+function buildLaudosCSV() {
+const rows = [['#','Cliente','Telefone','Endereço','Data','Vistoriador','Tipo','Plano','OK','Atenção','Crítico','Avaliação','Resolvido','Próx.Visita']];
+laudos.forEach((l,i) => rows.push([i+1, l.client, l.phone||'', l.address, l.date||'', l.inspector||'', l.type==='laudo'?'Vistoria com Laudo':'Visita Plano', l.plan||'', l.summary?.ok||0, l.summary?.attention||0, l.summary?.critical||0, l.rating||'', (l.resolved||'').replace(/"/g,"'"), l.nextvisit||'']));
+return rows.map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+}
+
+function buildClientsCSV() {
+const rows = [['#','Nome','Telefone','Email','Cidade','Endereço','Tipo Imóvel','Plano','Serviço','Recorrência','Início','Status','Origem','Observações','Qtd OS']];
+clients.forEach((c,i) => rows.push([i+1, c.name, c.phone, c.email||'', c.city||'', c.address||'', c.proptype||'', c.plan||'', c.service||'', c.recurrence||'', c.startdate||'', c.status||'', c.source||'', (c.notes||'').replace(/"/g,"'"), (c.ordens||[]).length]));
+return rows.map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+}
+
+function resetInspection() {
+// Delete draft if one was active
+if (currentDraftId) { deleteDraft(currentDraftId); currentDraftId = null; }
+sectionPhotos = {};
+resetInspectionForm();
+document.getElementById('inspectionFormArea').style.display = '';
+document.getElementById('inspectionSuccess').classList.remove('show');
+document.getElementById('inspNavBack').style.display = '';
+window.scrollTo(0,0);
+}
+
+function resetInspectionForm() {
+document.getElementById('inspectionFormArea').style.display = '';
+document.getElementById('inspectionSuccess').classList.remove('show');
+document.getElementById('i_client').value = '';
+document.getElementById('i_address').value = '';
+document.getElementById('i_resolved').value = '';
+document.getElementById('i_specialist').value = '';
+document.getElementById('i_materials').value = '';
+document.getElementById('photoPreviews').innerHTML = '';
+checklistState = {};
+inspectionRating = 0;
+selectedInspType = '';
+document.querySelectorAll('.inspection-type-card').forEach(c => c.classList.remove('selected'));
+document.querySelectorAll('.status-btn').forEach(b => b.classList.remove('active'));
+document.querySelectorAll('.item-note').forEach(n => n.classList.remove('visible'));
+setRating(0);
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('i_date').value = today;
+window.scrollTo(0,0);
+}
+
+// ===== ADMIN =====
+let clients = JSON.parse(localStorage.getItem('ch2_clients') || '[]');
+let currentClientViewId = null;
+
+const ALL_ADMIN_TABS = ['tabQuotes','tabLaudos','tabClients','tabClientView'];
+
+function switchAdminTab(el, tabId) {
+document.querySelectorAll('.admin-tabs .admin-tab').forEach(t => t.classList.remove('active'));
+el.classList.add('active');
+ALL_ADMIN_TABS.forEach(id => {
+const el = document.getElementById(id);
+if (el) el.style.display = id === tabId ? '' : 'none';
+});
+if (tabId === 'tabLaudos') renderAdminLaudos();
+if (tabId === 'tabClients') { renderClientStats(); renderClientsList(); }
+if (tabId === 'tabClientView') { populateClientViewSelect(); }
+}
+
+function renderAdminQuotes(filter = '') {
+// Make sure other tabs are hidden
+['tabLaudos','tabClients','tabClientView'].forEach(id => {
+const el = document.getElementById(id);
+if (el) el.style.display = 'none';
+});
+const filtered = quotes.filter(q =>
+!filter || [q.name, q.city, ...q.services].join(' ').toLowerCase().includes(filter.toLowerCase())
+);
+
+// Stats
+const stats = document.getElementById('quoteStats');
+const services = ['Plano de Assinatura', 'Busca do Imóvel', 'Vistoria Técnica', 'Manutenção'];
+const counts = services.map(s => quotes.filter(q => q.services.some(sv => sv.includes(s.split(' ')[0]))).length);
+stats.innerHTML = `
+<div class="stat-card"><div class="stat-label">Total</div><div class="stat-value">${quotes.length}</div><div class="stat-sub">solicitações</div></div>
+<div class="stat-card"><div class="stat-label">Assinatura</div><div class="stat-value">${counts[0]}</div><div class="stat-sub">pedidos</div></div>
+<div class="stat-card"><div class="stat-label">Vistoria</div><div class="stat-value">${counts[2]}</div><div class="stat-sub">pedidos</div></div>
+<div class="stat-card"><div class="stat-label">Manutenção</div><div class="stat-value">${counts[3]}</div><div class="stat-sub">pedidos</div></div>
+`;
+
+const tbody = document.getElementById('quotesTableBody');
+const empty = document.getElementById('quotesEmpty');
+
+if (filtered.length === 0) {
+tbody.innerHTML = '';
+empty.style.display = 'block';
+return;
+}
+empty.style.display = 'none';
+
+tbody.innerHTML = filtered.map((q, i) => {
+const st = q.status || 'Novo';
+const stStyle = st === 'Orçamento Enviado' ? 'badge-gold' : st === 'Concluído' ? 'badge-green' : 'badge-gray';
+return `
+<tr onclick="showQuoteDetail(${q.id})" style="cursor:pointer">
+<td style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:18px">${String(i+1).padStart(2,'0')}</td>
+<td style="color:var(--cream);font-weight:500">${q.name}</td>
+<td>${q.phone}</td>
+<td>${q.services.map(s => `<span class="badge badge-teal" style="margin-right:4px;margin-bottom:2px">${s.split(' ')[0]}</span>`).join('')}</td>
+<td><span class="badge badge-gray">${q.urgency || '—'}</span></td>
+<td><span class="badge ${stStyle}">${st}</span></td>
+<td>${q.date}</td>
+<td><span class="badge badge-gold">Ver →</span></td>
+</tr>
+`}).join('');
+}
+
+function filterQuotes(v) { renderAdminQuotes(v); }
+
+function renderAdminLaudos(filter = '') {
+const filtered = laudos.filter(l =>
+!filter || [l.client, l.address, l.inspector].join(' ').toLowerCase().includes(filter.toLowerCase())
+);
+
+// Stats
+const stats = document.getElementById('laudoStats');
+const withLaudo = laudos.filter(l => l.type === 'laudo').length;
+const withPlano = laudos.filter(l => l.type === 'plano').length;
+const totalCrit = laudos.reduce((sum, l) => sum + (l.summary?.critical || 0), 0);
+stats.innerHTML = `
+<div class="stat-card"><div class="stat-label">Total Laudos</div><div class="stat-value">${laudos.length}</div><div class="stat-sub">vistorias</div></div>
+<div class="stat-card"><div class="stat-label">Com Laudo</div><div class="stat-value">${withLaudo}</div><div class="stat-sub">diagnósticos</div></div>
+<div class="stat-card"><div class="stat-label">Visitas Plano</div><div class="stat-value">${withPlano}</div><div class="stat-sub">preventivas</div></div>
+<div class="stat-card"><div class="stat-label">Itens Críticos</div><div class="stat-value" style="color:var(--danger)">${totalCrit}</div><div class="stat-sub">total acumulado</div></div>
+`;
+
+const list = document.getElementById('laudosList');
+const empty = document.getElementById('laudosEmpty');
+
+if (filtered.length === 0) {
+list.innerHTML = '';
+empty.style.display = 'block';
+return;
+}
+empty.style.display = 'none';
+
+list.innerHTML = filtered.map((l, i) => {
+const rv = l.reviewStatus || 'Aguardando Revisão';
+const rvBadge = rv === 'Revisão Feita' ? 'badge-green' : rv === 'Em Análise' ? 'badge-gold' : 'badge-gray';
+return `
+<div class="inspection-card" onclick="showLaudoDetail(${l.id})">
+<div class="card-num">${String(i+1).padStart(2,'0')}</div>
+<div class="card-info">
+<div class="card-name">${l.client}</div>
+<div class="card-meta">${l.address} · ${l.date || 'Data não informada'} · ${l.inspector || 'Vistoriador'}</div>
+<div style="margin-top:6px">
+<span class="badge badge-green" style="margin-right:6px">✓ ${l.summary?.ok || 0} OK</span>
+<span class="badge badge-gold" style="margin-right:6px">! ${l.summary?.attention || 0} Atenção</span>
+${l.summary?.critical > 0 ? `<span class="badge" style="background:rgba(224,80,80,0.15);color:var(--danger)">✗ ${l.summary.critical} Crítico</span>` : ''}
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end">
+<span class="badge ${l.type === 'laudo' ? 'badge-gold' : 'badge-teal'}">${l.type === 'laudo' ? '📄 Laudo' : '🔁 Plano'}</span>
+<span class="badge ${rvBadge}" style="font-size:10px">${rv}</span>
+</div>
+</div>
+`}).join('');
+}
+
+function filterLaudos(v) { renderAdminLaudos(v); }
+
+function showQuoteDetail(id) {
+const q = quotes.find(x => x.id === id);
+if (!q) return;
+const statusMap = {
+'Novo': { color: 'var(--gray)', bg: 'rgba(255,255,255,0.08)' },
+'Orçamento Enviado': { color: 'var(--gold)', bg: 'rgba(196,150,74,0.12)' },
+'Concluído': { color: '#60d888', bg: 'rgba(80,200,120,0.12)' },
+};
+const st = q.status || 'Novo';
+const stStyle = statusMap[st] || statusMap['Novo'];
+document.getElementById('modalTitle').textContent = 'Solicitação · ' + q.name;
+document.getElementById('modalBody').innerHTML = `
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+<span style="font-size:12px;font-weight:600;padding:6px 14px;border-radius:50px;background:${stStyle.bg};color:${stStyle.color};border:1px solid currentColor">● ${st}</span>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button class="btn" style="font-size:12px;padding:7px 14px;background:rgba(196,150,74,0.12);border:1px solid rgba(196,150,74,0.4);color:var(--gold)" onclick="setQuoteStatus(${q.id},'Orçamento Enviado')">📤 Orçamento Enviado</button>
+<button class="btn" style="font-size:12px;padding:7px 14px;background:rgba(80,200,120,0.1);border:1px solid rgba(80,200,120,0.3);color:#60d888" onclick="setQuoteStatus(${q.id},'Concluído')">✓ Concluído</button>
+<button class="btn" style="font-size:12px;padding:7px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--gray)" onclick="setQuoteStatus(${q.id},'Novo')">↩ Novo</button>
+</div>
+</div>
+<div class="detail-row"><span class="detail-key">Nome</span><span class="detail-val">${q.name}</span></div>
+<div class="detail-row"><span class="detail-key">Telefone</span><span class="detail-val">${q.phone}</span></div>
+<div class="detail-row"><span class="detail-key">E-mail</span><span class="detail-val">${q.email || '—'}</span></div>
+<div class="detail-row"><span class="detail-key">Cidade</span><span class="detail-val">${q.city || '—'}</span></div>
+<div class="detail-row"><span class="detail-key">Imóvel</span><span class="detail-val">${q.proptype || '—'}</span></div>
+<div class="detail-row"><span class="detail-key">Serviços</span><span class="detail-val">${q.services.join(', ')}</span></div>
+<div class="detail-row"><span class="detail-key">Urgência</span><span class="detail-val">${q.urgency || '—'}</span></div>
+<div class="detail-row"><span class="detail-key">Como nos achou</span><span class="detail-val">${q.source || '—'}</span></div>
+<div class="divider"></div>
+<div class="detail-row"><span class="detail-key">Mensagem</span><span class="detail-val">${q.comment}</span></div>
+<div class="detail-row"><span class="detail-key">Data</span><span class="detail-val">${q.date}</span></div>
+<div style="margin-top:20px;display:flex;gap:10px">
+<a href="https://wa.me/55${q.phone.replace(/\D/g,'')}" target="_blank" class="btn btn-teal" style="text-decoration:none">💬 WhatsApp</a>
+<button class="btn btn-danger" onclick="deleteQuote(${q.id})">Excluir</button>
+</div>
+`;
+document.getElementById('detailModal').classList.add('open');
+}
+
+function setQuoteStatus(id, status) {
+const q = quotes.find(x => x.id === id);
+if (!q) return;
+q.status = status;
+localStorage.setItem('ch2_quotes', JSON.stringify(quotes));
+closeModal();
+renderAdminQuotes();
+// Re-open with updated data
+setTimeout(() => showQuoteDetail(id), 50);
+}
+
+function showLaudoDetail(id) {
+const l = laudos.find(x => x.id === id);
+if (!l) return;
+document.getElementById('modalTitle').textContent = 'Laudo · ' + l.client;
+
+const criticalItems = Object.entries(l.checklist || {}).filter(([,v]) => v === 'critical');
+const reviewStatus = l.reviewStatus || 'Aguardando Revisão';
+const rvColors = {
+'Aguardando Revisão': { color: 'var(--gray)', bg: 'rgba(255,255,255,0.07)' },
+'Em Análise': { color: 'var(--gold)', bg: 'rgba(196,150,74,0.12)' },
+'Revisão Feita': { color: '#60d888', bg: 'rgba(80,200,120,0.12)' },
+};
+const rv = rvColors[reviewStatus] || rvColors['Aguardando Revisão'];
+
+document.getElementById('modalBody').innerHTML = `
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+<span style="font-size:12px;font-weight:600;padding:6px 14px;border-radius:50px;background:${rv.bg};color:${rv.color};border:1px solid currentColor">● ${reviewStatus}</span>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button class="btn" style="font-size:12px;padding:7px 14px;background:rgba(42,181,160,0.1);border:1px solid rgba(42,181,160,0.4);color:var(--teal)" onclick="setLaudoReview(${l.id},'Em Análise')">🔍 Em Análise</button>
+<button class="btn" style="font-size:12px;padding:7px 14px;background:rgba(80,200,120,0.1);border:1px solid rgba(80,200,120,0.3);color:#60d888" onclick="setLaudoReview(${l.id},'Revisão Feita')">✓ Revisão Feita</button>
+<button class="btn" style="font-size:12px;padding:7px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:var(--gray)" onclick="setLaudoReview(${l.id},'Aguardando Revisão')">↩ Aguardando</button>
+</div>
+</div>
+<div class="detail-row"><span class="detail-key">Cliente</span><span class="detail-val">${l.client}</span></div>
+<div class="detail-row"><span class="detail-key">Endereço</span><span class="detail-val">${l.address}</span></div>
+<div class="detail-row"><span class="detail-key">Data</span><span class="detail-val">${l.date}</span></div>
+<div class="detail-row"><span class="detail-key">Vistoriador</span><span class="detail-val">${l.inspector || '—'}</span></div>
+<div class="detail-row"><span class="detail-key">Plano</span><span class="detail-val">${l.plan || '—'}</span></div>
+<div class="detail-row"><span class="detail-key">Tipo</span><span class="detail-val">${l.type === 'laudo' ? '📄 Vistoria com Laudo' : '🔁 Visita Técnica de Plano'}</span></div>
+<div class="detail-row"><span class="detail-key">Avaliação</span><span class="detail-val">${'⭐'.repeat(l.rating || 0) || '—'}</span></div>
+<div class="divider"></div>
+<div class="detail-row"><span class="detail-key">Resumo</span><span class="detail-val">
+<span class="badge badge-green" style="margin-right:5px">✓ ${l.summary?.ok || 0} OK</span>
+<span class="badge badge-gold" style="margin-right:5px">! ${l.summary?.attention || 0} Atenção</span>
+<span class="badge" style="background:rgba(224,80,80,0.15);color:var(--danger)">✗ ${l.summary?.critical || 0} Crítico</span>
+</span></div>
+${criticalItems.length ? `<div class="detail-row"><span class="detail-key">Críticos</span><span class="detail-val" style="color:#ff9090">${criticalItems.map(([k])=>k.replace(/_/g,' ')).join(', ')}</span></div>` : ''}
+<div class="divider"></div>
+<div class="detail-row"><span class="detail-key">Resolvido</span><span class="detail-val">${l.resolved || '—'}</span></div>
+<div class="detail-row"><span class="detail-key">Especialistas</span><span class="detail-val">${l.specialist || '—'}</span></div>
+<div class="detail-row"><span class="detail-key">Materiais</span><span class="detail-val">${l.materials || '—'}</span></div>
+<div class="detail-row"><span class="detail-key">Próx. Visita</span><span class="detail-val">${l.nextvisit || '—'}</span></div>
+<div style="margin-top:20px">
+<button class="btn btn-danger" onclick="deleteLaudo(${l.id})">Excluir Laudo</button>
+</div>
+`;
+document.getElementById('detailModal').classList.add('open');
+}
+
+function setLaudoReview(id, status) {
+const l = laudos.find(x => x.id === id);
+if (!l) return;
+l.reviewStatus = status;
+localStorage.setItem('ch2_laudos', JSON.stringify(laudos));
+closeModal();
+renderAdminLaudos();
+setTimeout(() => showLaudoDetail(id), 50);
+}
+
+function deleteQuote(id) {
+if (!confirm('Confirma a exclusão desta solicitação?')) return;
+quotes = quotes.filter(q => q.id !== id);
+localStorage.setItem('ch2_quotes', JSON.stringify(quotes));
+closeModal();
+renderAdminQuotes();
+}
+
+function deleteLaudo(id) {
+if (!confirm('Confirma a exclusão deste laudo?')) return;
+laudos = laudos.filter(l => l.id !== id);
+localStorage.setItem('ch2_laudos', JSON.stringify(laudos));
+closeModal();
+renderAdminLaudos();
+}
+
+// ===== CLIENTS =====
+function saveClient() {
+const name = document.getElementById('c_name').value.trim();
+const phone = document.getElementById('c_phone').value.trim();
+if (!name || !phone) { alert('Nome e telefone são obrigatórios.'); return; }
+
+const editId = document.getElementById('c_editId').value;
+const data = {
+id: editId ? parseInt(editId) : Date.now(),
+name, phone,
+email: document.getElementById('c_email').value,
+city: document.getElementById('c_city').value,
+address: document.getElementById('c_address').value,
+proptype: document.getElementById('c_proptype').value,
+plan: document.getElementById('c_plan').value,
+service: document.getElementById('c_service').value,
+recurrence: document.getElementById('c_recurrence').value,
+startdate: document.getElementById('c_startdate').value,
+status: document.getElementById('c_status').value,
+source: document.getElementById('c_source').value,
+notes: document.getElementById('c_notes').value,
+actions: editId ? (clients.find(c=>c.id===parseInt(editId))?.actions || []) : [],
+notesLog: editId ? (clients.find(c=>c.id===parseInt(editId))?.notesLog || []) : [],
+dateISO: editId ? (clients.find(c=>c.id===parseInt(editId))?.dateISO) : new Date().toISOString(),
+};
+
+if (editId) {
+const idx = clients.findIndex(c => c.id === parseInt(editId));
+clients[idx] = data;
+} else {
+clients.push(data);
+}
+localStorage.setItem('ch2_clients', JSON.stringify(clients));
+cancelClientEdit();
+renderClientStats();
+renderClientsList();
+}
+
+function cancelClientEdit() {
+document.getElementById('c_editId').value = '';
+document.getElementById('c_name').value = '';
+document.getElementById('c_phone').value = '';
+document.getElementById('c_email').value = '';
+document.getElementById('c_city').value = '';
+document.getElementById('c_address').value = '';
+document.getElementById('c_proptype').value = '';
+document.getElementById('c_plan').value = '';
+document.getElementById('c_service').value = '';
+document.getElementById('c_recurrence').value = '';
+document.getElementById('c_startdate').value = '';
+document.getElementById('c_status').value = 'Ativo';
+document.getElementById('c_source').value = '';
+document.getElementById('c_notes').value = '';
+document.getElementById('clientFormTitle').textContent = 'Cadastrar Novo Cliente';
+document.getElementById('clientFormMode').textContent = '✦ Novo Cadastro';
+}
+
+function editClient(id) {
+const c = clients.find(x => x.id === id);
+if (!c) return;
+document.getElementById('c_editId').value = c.id;
+document.getElementById('c_name').value = c.name;
+document.getElementById('c_phone').value = c.phone;
+document.getElementById('c_email').value = c.email || '';
+document.getElementById('c_city').value = c.city || '';
+document.getElementById('c_address').value = c.address || '';
+document.getElementById('c_proptype').value = c.proptype || '';
+document.getElementById('c_plan').value = c.plan || '';
+document.getElementById('c_service').value = c.service || '';
+document.getElementById('c_recurrence').value = c.recurrence || '';
+document.getElementById('c_startdate').value = c.startdate || '';
+document.getElementById('c_status').value = c.status || 'Ativo';
+document.getElementById('c_source').value = c.source || '';
+document.getElementById('c_notes').value = c.notes || '';
+document.getElementById('clientFormTitle').textContent = 'Editar Cliente';
+document.getElementById('clientFormMode').textContent = '✎ Editando';
+window.scrollTo(0,0);
+}
+
+function deleteClient(id) {
+if (!confirm('Excluir este cliente da base?')) return;
+clients = clients.filter(c => c.id !== id);
+localStorage.setItem('ch2_clients', JSON.stringify(clients));
+renderClientStats();
+renderClientsList();
+}
+
+function renderClientStats() {
+const ativos = clients.filter(c => c.status === 'Ativo').length;
+const rec = clients.filter(c => c.recurrence === 'Recorrente (assinatura)').length;
+const neg = clients.filter(c => c.status === 'Em negociação').length;
+document.getElementById('clientStats').innerHTML = `
+<div class="stat-card"><div class="stat-label">Total Clientes</div><div class="stat-value">${clients.length}</div><div class="stat-sub">cadastrados</div></div>
+<div class="stat-card"><div class="stat-label">Ativos</div><div class="stat-value" style="color:var(--teal)">${ativos}</div><div class="stat-sub">em operação</div></div>
+<div class="stat-card"><div class="stat-label">Assinantes</div><div class="stat-value" style="color:var(--gold)">${rec}</div><div class="stat-sub">recorrentes</div></div>
+<div class="stat-card"><div class="stat-label">Em Negociação</div><div class="stat-value">${neg}</div><div class="stat-sub">pipeline</div></div>
+`;
+document.getElementById('clientCount').textContent = clients.length + ' clientes';
+}
+
+function renderClientsList(filter = '') {
+const filtered = clients.filter(c =>
+!filter || [c.name, c.city, c.plan, c.service].join(' ').toLowerCase().includes(filter.toLowerCase())
+);
+const list = document.getElementById('clientsList');
+const empty = document.getElementById('clientsEmpty');
+
+if (filtered.length === 0) { list.innerHTML = ''; empty.style.display = 'block'; return; }
+empty.style.display = 'none';
+
+const statusColor = { 'Ativo': 'badge-teal', 'Em negociação': 'badge-gold', 'Pausado': 'badge-gray', 'Inativo': 'badge-gray' };
+
+list.innerHTML = filtered.map((c, i) => {
+const osCount = (c.ordens || []).length;
+return `
+<div style="background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:20px 24px;margin-bottom:10px">
+<div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+<div style="font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold);opacity:0.4;min-width:40px">${String(i+1).padStart(2,'0')}</div>
+<div style="flex:1;min-width:160px">
+<div style="font-size:15px;color:var(--cream);font-weight:500;margin-bottom:4px">${c.name}</div>
+<div style="font-size:12px;color:var(--gray)">${c.phone}${c.city?' · '+c.city:''}${c.plan?' · '+c.plan.split('·')[0].trim():''}</div>
+<div style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap">
+<span class="badge ${statusColor[c.status]||'badge-gray'}">${c.status||'Ativo'}</span>
+${c.recurrence==='Recorrente (assinatura)'?'<span class="badge badge-gold">🔁 Assinante</span>':''}
+${osCount>0?`<span class="badge badge-gray">📋 ${osCount} OS</span>`:''}
+</div>
+</div>
+<div style="display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap">
+<button class="btn btn-teal" style="font-size:12px;padding:8px 14px" onclick="openOsModal(${c.id})">+ Ordem de Serviço</button>
+<button class="btn" style="font-size:12px;padding:8px 14px;background:rgba(255,255,255,0.06);color:var(--gray-light);border:1px solid rgba(255,255,255,0.08)" onclick="editClient(${c.id})">✎ Editar</button>
+<button class="btn btn-danger" style="font-size:12px;padding:8px 14px" onclick="deleteClient(${c.id})">✕</button>
+</div>
+</div>
+${osCount>0?`
+<div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.05)">
+<div style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);margin-bottom:8px">Ordens de Serviço</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+${(c.ordens||[]).map((os,oi)=>`
+<div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.02);border-radius:8px;padding:8px 12px;flex-wrap:wrap">
+<span class="badge ${os.type==='Recorrente'?'badge-teal':os.type==='Proposta'?'badge-gold':'badge-gray'}">${os.type}</span>
+<span style="font-size:12px;color:var(--gray-light);flex:1">${os.lines.map(l=>l.service).filter(Boolean).join(', ')||'—'}</span>
+<span style="font-size:11px;color:var(--gray)">${os.propdate||''}</span>
+<span class="badge ${os.status==='Aceita'?'badge-green':os.status==='Recusada'?'':''}" style="${os.status==='Recusada'?'background:rgba(224,80,80,0.12);color:var(--danger)':''}">${os.status||'—'}</span>
+<button onclick="deleteOs(${c.id},${oi})" style="background:none;border:none;color:var(--gray);cursor:pointer;font-size:13px;padding:0 2px">✕</button>
+</div>
+`).join('')}
+</div>
+</div>`:''}
+</div>
+`}).join('');
+}
+
+function filterClients(v) { renderClientsList(v); }
+
+// ===== CLIENT VIEW =====
+function populateClientViewSelect() {
+const sel = document.getElementById('clientViewSelect');
+const prev = sel.value;
+sel.innerHTML = '<option value="">— Escolha um cliente —</option>' +
+clients.map(c => `<option value="${c.id}" ${String(c.id)===prev?'selected':''}>${c.name}${c.plan?' · '+c.plan.split('·')[0].trim():''}</option>`).join('');
+if (prev) loadClientView(prev);
+}
+
+function loadClientView(clientId) {
+const area = document.getElementById('clientViewArea');
+const empty = document.getElementById('clientViewEmpty');
+if (!clientId) { area.style.display='none'; empty.style.display='block'; return; }
+
+const c = clients.find(x => String(x.id) === String(clientId));
+if (!c) return;
+currentClientViewId = c.id;
+
+area.style.display = 'block';
+empty.style.display = 'none';
+
+// Header
+document.getElementById('cv_name').textContent = c.name;
+document.getElementById('cv_meta').textContent = [c.phone, c.email, c.city].filter(Boolean).join(' · ');
+
+const statusColor = { 'Ativo':'var(--teal)', 'Em negociação':'var(--gold)', 'Pausado':'var(--gray)', 'Inativo':'var(--gray)' };
+document.getElementById('cv_badges').innerHTML = `
+<span class="badge" style="background:rgba(42,181,160,0.1);color:${statusColor[c.status]||'var(--gray)'};border:1px solid currentColor">${c.status||'Ativo'}</span>
+${c.plan ? `<span class="badge badge-gold">${c.plan.split('·')[0].trim()}</span>` : ''}
+${c.recurrence === 'Recorrente (assinatura)' ? '<span class="badge badge-teal">🔁 Assinante</span>' : ''}
+`;
+
+// Find related laudos and quotes by name match
+const clientLaudos = laudos.filter(l => l.client && l.client.toLowerCase().includes(c.name.split(' ')[0].toLowerCase()));
+const clientQuotes = quotes.filter(q => q.name && q.name.toLowerCase().includes(c.name.split(' ')[0].toLowerCase()));
+const openActions = (c.actions || []).filter(a => !a.done).length;
+
+// Stat cards
+document.getElementById('cv_statcards').innerHTML = `
+<div class="stat-card"><div class="stat-label">Vistorias</div><div class="stat-value" style="color:var(--teal)">${clientLaudos.length}</div><div class="stat-sub">registradas</div></div>
+<div class="stat-card"><div class="stat-label">Solicitações</div><div class="stat-value">${clientQuotes.length}</div><div class="stat-sub">histórico</div></div>
+<div class="stat-card"><div class="stat-label">Ações Abertas</div><div class="stat-value" style="color:${openActions>0?'var(--gold)':'var(--gray)'}">${openActions}</div><div class="stat-sub">pendentes</div></div>
+`;
+
+// Contract info
+const lastLaudo = clientLaudos.sort((a,b) => new Date(b.dateISO||0)-new Date(a.dateISO||0))[0];
+document.getElementById('cv_contract_info').innerHTML = `
+<div class="detail-row"><span class="detail-key">Plano</span><span class="detail-val">${c.plan||'—'}</span></div>
+<div class="detail-row"><span class="detail-key">Serviço</span><span class="detail-val">${c.service||'—'}</span></div>
+<div class="detail-row"><span class="detail-key">Recorrência</span><span class="detail-val">${c.recurrence||'—'}</span></div>
+<div class="detail-row"><span class="detail-key">Início</span><span class="detail-val">${c.startdate ? new Date(c.startdate+'T12:00:00').toLocaleDateString('pt-BR') : '—'}</span></div>
+<div class="detail-row"><span class="detail-key">Origem</span><span class="detail-val">${c.source||'—'}</span></div>
+<div class="detail-row"><span class="detail-key">Imóvel</span><span class="detail-val">${[c.proptype, c.address].filter(Boolean).join(' · ')||'—'}</span></div>
+`;
+
+document.getElementById('cv_last_inspection').innerHTML = lastLaudo ? `
+<div class="detail-row"><span class="detail-key">Data</span><span class="detail-val">${lastLaudo.date||'—'}</span></div>
+<div class="detail-row"><span class="detail-key">Tipo</span><span class="detail-val">${lastLaudo.type==='laudo'?'📄 Laudo':'🔁 Plano'}</span></div>
+<div class="detail-row"><span class="detail-key">Avaliação</span><span class="detail-val">${'⭐'.repeat(lastLaudo.rating||0)||'—'}</span></div>
+<div class="detail-row"><span class="detail-key">Resultado</span><span class="detail-val">
+<span class="badge badge-green" style="margin-right:4px">✓${lastLaudo.summary?.ok||0}</span>
+<span class="badge badge-gold" style="margin-right:4px">!${lastLaudo.summary?.attention||0}</span>
+${(lastLaudo.summary?.critical||0)>0?`<span class="badge" style="background:rgba(224,80,80,0.15);color:var(--danger)">✗${lastLaudo.summary.critical}</span>`:''}
+</span></div>
+<div class="detail-row"><span class="detail-key">Próx. Visita</span><span class="detail-val">${lastLaudo.nextvisit||'—'}</span></div>
+${lastLaudo.specialist?`<div class="detail-row"><span class="detail-key">Pendências</span><span class="detail-val" style="color:#ffaa60">${lastLaudo.specialist}</span></div>`:''}
+` : '<p style="color:var(--gray);font-size:13px">Nenhuma vistoria registrada ainda.</p>';
+
+document.getElementById('cv_notes_display').textContent = c.notes || 'Nenhuma observação cadastrada.';
+
+// Laudos tab
+renderCvLaudos(clientLaudos);
+renderCvQuotes(clientQuotes);
+renderCvActions();
+renderCvNotes();
+
+// Reset inner tab
+document.querySelectorAll('#cv_innertabs .admin-tab').forEach((t,i) => t.classList.toggle('active', i===0));
+['cv_tab_overview','cv_tab_laudos','cv_tab_quotes','cv_tab_actions','cv_tab_notes'].forEach((id,i) => {
+document.getElementById(id).style.display = i===0 ? '' : 'none';
+});
+}
+
+function switchCvTab(el, tabId) {
+document.querySelectorAll('#cv_innertabs .admin-tab').forEach(t => t.classList.remove('active'));
+el.classList.add('active');
+['cv_tab_overview','cv_tab_laudos','cv_tab_quotes','cv_tab_actions','cv_tab_notes'].forEach(id => {
+document.getElementById(id).style.display = id===tabId ? '' : 'none';
+});
+}
+
+function renderCvLaudos(list) {
+const el = document.getElementById('cv_laudos_list');
+const empty = document.getElementById('cv_laudos_empty');
+if (!list.length) { el.innerHTML=''; empty.style.display='block'; return; }
+empty.style.display='none';
+el.innerHTML = list.map((l,i) => `
+<div class="inspection-card" onclick="showLaudoDetail(${l.id})" style="margin-bottom:10px">
+<div class="card-num">${String(i+1).padStart(2,'0')}</div>
+<div class="card-info">
+<div class="card-name">${l.address||'Endereço não informado'}</div>
+<div class="card-meta">${l.date||'—'} · ${l.inspector||'Vistoriador'}</div>
+<div style="margin-top:6px">
+<span class="badge badge-green" style="margin-right:5px">✓${l.summary?.ok||0}</span>
+<span class="badge badge-gold" style="margin-right:5px">!${l.summary?.attention||0}</span>
+${(l.summary?.critical||0)>0?`<span class="badge" style="background:rgba(224,80,80,0.15);color:var(--danger)">✗${l.summary.critical}</span>`:''}
+</div>
+</div>
+<span class="badge ${l.type==='laudo'?'badge-gold':'badge-teal'}">${l.type==='laudo'?'📄 Laudo':'🔁 Plano'}</span>
+</div>
+`).join('');
+}
+
+function renderCvQuotes(list) {
+const el = document.getElementById('cv_quotes_list');
+const empty = document.getElementById('cv_quotes_empty');
+if (!list.length) { el.innerHTML=''; empty.style.display='block'; return; }
+empty.style.display='none';
+el.innerHTML = list.map((q,i) => `
+<div class="inspection-card" onclick="showQuoteDetail(${q.id})" style="margin-bottom:10px">
+<div class="card-num">${String(i+1).padStart(2,'0')}</div>
+<div class="card-info">
+<div class="card-name">${q.services?.join(', ')||'—'}</div>
+<div class="card-meta">${q.date} · ${q.urgency||'—'}</div>
+<div class="card-meta" style="margin-top:4px;font-style:italic">"${(q.comment||'').substring(0,80)}${(q.comment||'').length>80?'...':''}"</div>
+</div>
+</div>
+`).join('');
+}
+
+function renderCvActions() {
+if (!currentClientViewId) return;
+const c = clients.find(x => x.id === currentClientViewId);
+if (!c) return;
+const actions = c.actions || [];
+const el = document.getElementById('cv_actions_list');
+const empty = document.getElementById('cv_actions_empty');
+if (!actions.length) { el.innerHTML=''; empty.style.display='block'; return; }
+empty.style.display='none';
+
+const priorityColor = { 'Alta':'var(--danger)', 'Média':'var(--gold)', 'Baixa':'var(--gray)' };
+
+el.innerHTML = actions.map((a,i) => `
+<div style="background:${a.done?'rgba(255,255,255,0.02)':'linear-gradient(135deg,var(--navy-mid),var(--navy-light))'};border:1px solid ${a.done?'rgba(255,255,255,0.04)':'rgba(42,181,160,0.15)'};border-radius:12px;padding:16px 20px;margin-bottom:10px;display:flex;align-items:center;gap:16px;opacity:${a.done?'0.5':'1'}">
+<input type="checkbox" ${a.done?'checked':''} onchange="toggleAction(${i})" style="width:18px;height:18px;cursor:pointer;accent-color:var(--teal)">
+<div style="flex:1">
+<div style="font-size:14px;color:var(--cream);${a.done?'text-decoration:line-through;':''}">${a.desc}</div>
+<div style="font-size:11px;color:var(--gray);margin-top:3px">
+${a.due?'📅 Prazo: '+new Date(a.due+'T12:00:00').toLocaleDateString('pt-BR')+' · ':''}
+${a.owner?'👤 '+a.owner:''}
+</div>
+</div>
+<span style="font-size:11px;font-weight:600;color:${priorityColor[a.priority]||'var(--gray)'};background:rgba(255,255,255,0.05);padding:3px 10px;border-radius:50px">${a.priority||'Média'}</span>
+<button onclick="removeAction(${i})" style="background:none;border:none;color:var(--gray);cursor:pointer;font-size:16px;padding:0 4px">✕</button>
+</div>
+`).join('');
+}
+
+function addClientAction() {
+if (!currentClientViewId) return;
+const desc = document.getElementById('action_desc').value.trim();
+if (!desc) { alert('Descreva a ação.'); return; }
+const c = clients.find(x => x.id === currentClientViewId);
+if (!c) return;
+if (!c.actions) c.actions = [];
+c.actions.unshift({
+desc,
+priority: document.getElementById('action_priority').value,
+due: document.getElementById('action_due').value,
+owner: document.getElementById('action_owner').value,
+done: false,
+createdAt: new Date().toISOString()
+});
+localStorage.setItem('ch2_clients', JSON.stringify(clients));
+document.getElementById('action_desc').value = '';
+document.getElementById('action_due').value = '';
+document.getElementById('action_owner').value = '';
+renderCvActions();
+// update open actions count
+loadClientView(currentClientViewId);
+}
+
+function toggleAction(idx) {
+const c = clients.find(x => x.id === currentClientViewId);
+if (!c || !c.actions[idx]) return;
+c.actions[idx].done = !c.actions[idx].done;
+localStorage.setItem('ch2_clients', JSON.stringify(clients));
+renderCvActions();
+}
+
+function removeAction(idx) {
+const c = clients.find(x => x.id === currentClientViewId);
+if (!c) return;
+c.actions.splice(idx, 1);
+localStorage.setItem('ch2_clients', JSON.stringify(clients));
+renderCvActions();
+}
+
+function renderCvNotes() {
+if (!currentClientViewId) return;
+const c = clients.find(x => x.id === currentClientViewId);
+if (!c) return;
+const notes = c.notesLog || [];
+const el = document.getElementById('cv_notes_list');
+const empty = document.getElementById('cv_notes_empty');
+if (!notes.length) { el.innerHTML=''; empty.style.display='block'; return; }
+empty.style.display='none';
+el.innerHTML = notes.map((n,i) => `
+<div style="background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:16px 20px;margin-bottom:10px;position:relative">
+<div style="font-size:13px;color:var(--gray-light);line-height:1.7">${n.text}</div>
+<div style="font-size:11px;color:var(--gray);margin-top:8px">${new Date(n.createdAt).toLocaleDateString('pt-BR','pt-BR')} às ${new Date(n.createdAt).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}</div>
+<button onclick="removeNote(${i})" style="position:absolute;top:12px;right:14px;background:none;border:none;color:var(--gray);cursor:pointer;font-size:14px">✕</button>
+</div>
+`).join('');
+}
+
+function addClientNote() {
+if (!currentClientViewId) return;
+const text = document.getElementById('note_text').value.trim();
+if (!text) return;
+const c = clients.find(x => x.id === currentClientViewId);
+if (!c) return;
+if (!c.notesLog) c.notesLog = [];
+c.notesLog.unshift({ text, createdAt: new Date().toISOString() });
+localStorage.setItem('ch2_clients', JSON.stringify(clients));
+document.getElementById('note_text').value = '';
+renderCvNotes();
+}
+
+function removeNote(idx) {
+const c = clients.find(x => x.id === currentClientViewId);
+if (!c) return;
+c.notesLog.splice(idx, 1);
+localStorage.setItem('ch2_clients', JSON.stringify(clients));
+renderCvNotes();
+}
+
+// ===== ORDER OF SERVICE =====
+let osCurrentClientId = null;
+let osType = 'Recorrente';
+let osLineCount = 0;
+
+const SERVICE_OPTIONS = [
+'Plano de Assinatura',
+'Vistoria com Laudo',
+'Visita Técnica (Plano)',
+'Reparo Hidráulico',
+'Reparo Elétrico',
+'Impermeabilização',
+'Marcenaria / Acabamentos',
+'Rejunte / Revestimento',
+'Montagem de Móveis',
+'Limpeza de Calhas',
+'Busca do Imóvel',
+'Consultoria Técnica',
+'Projeto 3D',
+'Outro',
+];
+
+function openOsModal(clientId) {
+osCurrentClientId = clientId;
+const c = clients.find(x => x.id === clientId);
+document.getElementById('osModalClientName').textContent = c ? c.name : '—';
+osType = 'Recorrente';
+document.querySelectorAll('.os-type-btn').forEach(b => b.classList.toggle('active', b.dataset.type === 'Recorrente'));
+document.getElementById('os_propdate').value = new Date().toISOString().split('T')[0];
+document.getElementById('os_status').value = 'Enviada · aguardando';
+document.getElementById('os_startdate').value = '';
+document.getElementById('os_obs').value = '';
+osLineCount = 0;
+document.getElementById('osLinesContainer').innerHTML = '';
+addOsLine();
+document.getElementById('osModal').classList.add('open');
+}
+
+function closeOsModal() {
+document.getElementById('osModal').classList.remove('open');
+}
+
+function setOsType(btn, type) {
+osType = type;
+document.querySelectorAll('.os-type-btn').forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+}
+
+function addOsLine() {
+const idx = osLineCount++;
+const opts = SERVICE_OPTIONS.map(s => `<option>${s}</option>`).join('');
+const container = document.getElementById('osLinesContainer');
+const div = document.createElement('div');
+div.className = 'os-line';
+div.id = `osline_${idx}`;
+div.innerHTML = `
+<div class="form-group" style="margin:0">
+<label style="font-size:10px">Serviço</label>
+<select id="osl_service_${idx}">${opts}</select>
+</div>
+<div class="form-group" style="margin:0">
+<label style="font-size:10px">Horas estimadas</label>
+<input type="number" id="osl_hours_${idx}" min="0.5" step="0.5" placeholder="Ex: 4">
+</div>
+<div class="form-group" style="margin:0">
+<label style="font-size:10px">Valor (R$)</label>
+<input type="text" id="osl_value_${idx}" placeholder="Ex: 350,00">
+</div>
+<div class="form-group" style="margin:0">
+<label style="font-size:10px">Observação</label>
+<input type="text" id="osl_obs_${idx}" placeholder="Detalhe...">
+</div>
+<button class="os-line-remove" onclick="removeOsLine('osline_${idx}')">✕</button>
+`;
+container.appendChild(div);
+}
+
+function removeOsLine(id) {
+const el = document.getElementById(id);
+if (el) el.remove();
+}
+
+function saveOs() {
+if (!osCurrentClientId) return;
+const c = clients.find(x => x.id === osCurrentClientId);
+if (!c) return;
+
+// collect lines
+const lines = [];
+document.querySelectorAll('#osLinesContainer .os-line').forEach(row => {
+const id = row.id.replace('osline_','');
+lines.push({
+service: document.getElementById(`osl_service_${id}`)?.value || '',
+hours: document.getElementById(`osl_hours_${id}`)?.value || '',
+value: document.getElementById(`osl_value_${id}`)?.value || '',
+obs: document.getElementById(`osl_obs_${id}`)?.value || '',
+});
+});
+
+if (lines.length === 0) { alert('Adicione ao menos um serviço.'); return; }
+
+if (!c.ordens) c.ordens = [];
+c.ordens.unshift({
+id: Date.now(),
+type: osType,
+propdate: document.getElementById('os_propdate').value,
+status: document.getElementById('os_status').value,
+startdate: document.getElementById('os_startdate').value,
+obs: document.getElementById('os_obs').value,
+lines,
+createdAt: new Date().toISOString(),
+});
+
+localStorage.setItem('ch2_clients', JSON.stringify(clients));
+closeOsModal();
+renderClientStats();
+renderClientsList();
+}
+
+function deleteOs(clientId, osIdx) {
+const c = clients.find(x => x.id === clientId);
+if (!c || !c.ordens) return;
+c.ordens.splice(osIdx, 1);
+localStorage.setItem('ch2_clients', JSON.stringify(clients));
+renderClientsList();
+}
+
+// close OS modal on overlay click
+document.getElementById('osModal').addEventListener('click', function(e) {
+if (e.target === this) closeOsModal();
+});
+
+function closeModal() {
+document.getElementById('detailModal').classList.remove('open');
+}
+
+// Close modal on overlay click
+document.getElementById('detailModal').addEventListener('click', function(e) {
+if (e.target === this) closeModal();
+});
+
+// Keyboard ESC
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+
+</body>
+</html>
